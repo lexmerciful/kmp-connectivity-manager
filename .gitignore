@@ -15,3 +15,7 @@ Pods/
 *.jks
 *.gpg
 *yarn.lock
+
+# Internal planning docs
+README-PLAN.md
+docs/
