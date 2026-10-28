@@ -10,7 +10,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-/** The validation state machine (docs/04 §3 and docs/05 §3). */
+/** The validation state machine. */
 class StatusReducerTest {
 
     private fun reducer(policy: ValidationPolicy) = StatusReducer(policy, FailurePolicy.AssumeOnline)

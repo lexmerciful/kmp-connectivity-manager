@@ -218,7 +218,6 @@ connectivity-core/src
   webMain      navigator.onLine + events, optional fetch probe (js + wasmJs)
 build-logic/   convention plugins: connectivity.kmp.library, connectivity.kmp.jvm, connectivity.compose.library, connectivity.publish
 sample/        Compose Multiplatform sample (Android, iOS, Desktop, Web) with an MVI ViewModel
-docs/          the specification and decision log
 ```
 
 For Clean Architecture, keep library types out of your domain: define `interface ConnectivityObserver { val isConnected: Flow<Boolean> }` there and adapt `ConnectivityMonitor` to it in your data/DI layer.
