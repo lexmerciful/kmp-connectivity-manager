@@ -1,0 +1,7 @@
+public final class io/github/lexmerciful/connectivity/okhttp/ConnectivityHintsInterceptor : okhttp3/Interceptor {
+	public fun <init> (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;)V
+	public fun <init> (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun intercept (Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+}
+

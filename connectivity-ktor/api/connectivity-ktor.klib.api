@@ -1,0 +1,32 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, js, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <kmp-connectivity-manager:connectivity-ktor>
+final class io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig { // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig|null[0]
+    constructor <init>() // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.<init>|<init>(){}[0]
+
+    final var ignore // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.ignore|{}ignore[0]
+        final fun <get-ignore>(): kotlin/Function1<io.ktor.client.request/HttpRequestBuilder, kotlin/Boolean> // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.ignore.<get-ignore>|<get-ignore>(){}[0]
+        final fun <set-ignore>(kotlin/Function1<io.ktor.client.request/HttpRequestBuilder, kotlin/Boolean>) // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.ignore.<set-ignore>|<set-ignore>(kotlin.Function1<io.ktor.client.request.HttpRequestBuilder,kotlin.Boolean>){}[0]
+    final var isConnectionFailure // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.isConnectionFailure|{}isConnectionFailure[0]
+        final fun <get-isConnectionFailure>(): kotlin/Function1<kotlin/Throwable, kotlin/Boolean> // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.isConnectionFailure.<get-isConnectionFailure>|<get-isConnectionFailure>(){}[0]
+        final fun <set-isConnectionFailure>(kotlin/Function1<kotlin/Throwable, kotlin/Boolean>) // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.isConnectionFailure.<set-isConnectionFailure>|<set-isConnectionFailure>(kotlin.Function1<kotlin.Throwable,kotlin.Boolean>){}[0]
+    final var monitor // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.monitor|{}monitor[0]
+        final fun <get-monitor>(): io.github.lexmerciful.connectivity/ConnectivityMonitor? // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.monitor.<get-monitor>|<get-monitor>(){}[0]
+        final fun <set-monitor>(io.github.lexmerciful.connectivity/ConnectivityMonitor?) // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.monitor.<set-monitor>|<set-monitor>(io.github.lexmerciful.connectivity.ConnectivityMonitor?){}[0]
+    final var reportFailures // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportFailures|{}reportFailures[0]
+        final fun <get-reportFailures>(): kotlin/Boolean // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportFailures.<get-reportFailures>|<get-reportFailures>(){}[0]
+        final fun <set-reportFailures>(kotlin/Boolean) // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportFailures.<set-reportFailures>|<set-reportFailures>(kotlin.Boolean){}[0]
+    final var reportResponses // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportResponses|{}reportResponses[0]
+        final fun <get-reportResponses>(): kotlin/Boolean // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportResponses.<get-reportResponses>|<get-reportResponses>(){}[0]
+        final fun <set-reportResponses>(kotlin/Boolean) // io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig.reportResponses.<set-reportResponses>|<set-reportResponses>(kotlin.Boolean){}[0]
+}
+
+final val io.github.lexmerciful.connectivity.ktor/ConnectivityHints // io.github.lexmerciful.connectivity.ktor/ConnectivityHints|{}ConnectivityHints[0]
+    final fun <get-ConnectivityHints>(): io.ktor.client.plugins.api/ClientPlugin<io.github.lexmerciful.connectivity.ktor/ConnectivityHintsConfig> // io.github.lexmerciful.connectivity.ktor/ConnectivityHints.<get-ConnectivityHints>|<get-ConnectivityHints>(){}[0]
+
+final fun io.github.lexmerciful.connectivity.ktor/isDefaultConnectionFailure(kotlin/Throwable): kotlin/Boolean // io.github.lexmerciful.connectivity.ktor/isDefaultConnectionFailure|isDefaultConnectionFailure(kotlin.Throwable){}[0]

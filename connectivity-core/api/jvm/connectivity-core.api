@@ -1,0 +1,515 @@
+public final class io/github/lexmerciful/connectivity/ConnectivityConfig {
+	public final fun getDebounce ()Lio/github/lexmerciful/connectivity/DebounceConfig;
+	public final fun getDesktop ()Lio/github/lexmerciful/connectivity/config/DesktopConfig;
+	public final fun getHints ()Lio/github/lexmerciful/connectivity/HintConfig;
+	public final fun getInitialState ()Lio/github/lexmerciful/connectivity/InitialState;
+	public final fun getIos ()Lio/github/lexmerciful/connectivity/IosConfig;
+	public final fun getLogger ()Lio/github/lexmerciful/connectivity/ConnectivityLogger;
+	public final fun getOnMonitorFailure ()Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public final fun getReconnectedPolicy ()Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+	public final fun getScope ()Lkotlinx/coroutines/CoroutineScope;
+	public final fun getStopTimeout-UwyO8pc ()J
+	public final fun getValidation ()Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public final fun getWeb ()Lio/github/lexmerciful/connectivity/config/WebConfig;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityConfig$Builder {
+	public final fun debounce (Lkotlin/jvm/functions/Function1;)V
+	public final fun desktop (Lkotlin/jvm/functions/Function1;)V
+	public final fun getInitialState ()Lio/github/lexmerciful/connectivity/InitialState;
+	public final fun getLogger ()Lio/github/lexmerciful/connectivity/ConnectivityLogger;
+	public final fun getOnMonitorFailure ()Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public final fun getReconnectedPolicy ()Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+	public final fun getScope ()Lkotlinx/coroutines/CoroutineScope;
+	public final fun getStopTimeout-UwyO8pc ()J
+	public final fun getValidation ()Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public final fun hints (Lkotlin/jvm/functions/Function1;)V
+	public final fun ios (Lkotlin/jvm/functions/Function1;)V
+	public final fun setInitialState (Lio/github/lexmerciful/connectivity/InitialState;)V
+	public final fun setLogger (Lio/github/lexmerciful/connectivity/ConnectivityLogger;)V
+	public final fun setOnMonitorFailure (Lio/github/lexmerciful/connectivity/FailurePolicy;)V
+	public final fun setReconnectedPolicy (Lio/github/lexmerciful/connectivity/ReconnectedPolicy;)V
+	public final fun setScope (Lkotlinx/coroutines/CoroutineScope;)V
+	public final fun setStopTimeout-LRDsOJo (J)V
+	public final fun setValidation (Lio/github/lexmerciful/connectivity/ValidationPolicy;)V
+	public final fun web (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityConfigKt {
+	public static final fun ConnectivityConfig (Lkotlin/jvm/functions/Function1;)Lio/github/lexmerciful/connectivity/ConnectivityConfig;
+	public static synthetic fun ConnectivityConfig$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/lexmerciful/connectivity/ConnectivityConfig;
+}
+
+public abstract interface annotation class io/github/lexmerciful/connectivity/ConnectivityDsl : java/lang/annotation/Annotation {
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/ConnectivityLogger {
+	public static final field Companion Lio/github/lexmerciful/connectivity/ConnectivityLogger$Companion;
+	public abstract fun log (Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityLogger$Companion {
+	public final fun getNone ()Lio/github/lexmerciful/connectivity/ConnectivityLogger;
+	public final fun getPrintln ()Lio/github/lexmerciful/connectivity/ConnectivityLogger;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityLogger$Level : java/lang/Enum {
+	public static final field Debug Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;
+	public static final field Error Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;
+	public static final field Warning Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/ConnectivityLogger$Level;
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/ConnectivityMonitor : java/lang/AutoCloseable {
+	public abstract fun close ()V
+	public abstract fun getReconnected ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getStatus ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun isConnected ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun reportReachable ()V
+	public abstract fun requestRecheck ()V
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityMonitorFactoryKt {
+	public static final fun ConnectivityMonitor (Lio/github/lexmerciful/connectivity/ConnectivityConfig;)Lio/github/lexmerciful/connectivity/ConnectivityMonitor;
+	public static final fun ConnectivityMonitor (Lkotlin/jvm/functions/Function1;)Lio/github/lexmerciful/connectivity/ConnectivityMonitor;
+	public static synthetic fun ConnectivityMonitor$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lio/github/lexmerciful/connectivity/ConnectivityMonitor;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityMonitorKt {
+	public static final fun observe (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;Lkotlin/jvm/functions/Function1;)Ljava/lang/AutoCloseable;
+	public static final fun observeReconnected (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;Lkotlin/jvm/functions/Function0;)Ljava/lang/AutoCloseable;
+	public static final fun observeStatus (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;Lkotlin/jvm/functions/Function1;)Ljava/lang/AutoCloseable;
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/ConnectivityStatus {
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityStatus$Connected : io/github/lexmerciful/connectivity/ConnectivityStatus {
+	public fun <init> ()V
+	public fun <init> (Lio/github/lexmerciful/connectivity/Transport;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Lio/github/lexmerciful/connectivity/Transport;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lio/github/lexmerciful/connectivity/Transport;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun copy (Lio/github/lexmerciful/connectivity/Transport;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$Connected;
+	public static synthetic fun copy$default (Lio/github/lexmerciful/connectivity/ConnectivityStatus$Connected;Lio/github/lexmerciful/connectivity/Transport;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$Connected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTransport ()Lio/github/lexmerciful/connectivity/Transport;
+	public fun hashCode ()I
+	public final fun isConstrained ()Ljava/lang/Boolean;
+	public final fun isMetered ()Ljava/lang/Boolean;
+	public final fun isValidated ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityStatus$Disconnected : io/github/lexmerciful/connectivity/ConnectivityStatus {
+	public fun <init> ()V
+	public fun <init> (Lio/github/lexmerciful/connectivity/DisconnectReason;)V
+	public synthetic fun <init> (Lio/github/lexmerciful/connectivity/DisconnectReason;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public final fun copy (Lio/github/lexmerciful/connectivity/DisconnectReason;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$Disconnected;
+	public static synthetic fun copy$default (Lio/github/lexmerciful/connectivity/ConnectivityStatus$Disconnected;Lio/github/lexmerciful/connectivity/DisconnectReason;ILjava/lang/Object;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$Disconnected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityStatus$MonitorError : io/github/lexmerciful/connectivity/ConnectivityStatus {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun component1 ()Ljava/lang/Throwable;
+	public final fun copy (Ljava/lang/Throwable;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$MonitorError;
+	public static synthetic fun copy$default (Lio/github/lexmerciful/connectivity/ConnectivityStatus$MonitorError;Ljava/lang/Throwable;ILjava/lang/Object;)Lio/github/lexmerciful/connectivity/ConnectivityStatus$MonitorError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCause ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityStatus$Unknown : io/github/lexmerciful/connectivity/ConnectivityStatus {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/ConnectivityStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/ConnectivityStatusKt {
+	public static final fun isConnected (Lio/github/lexmerciful/connectivity/ConnectivityStatus;)Z
+}
+
+public final class io/github/lexmerciful/connectivity/DebounceConfig {
+	public final fun getOffline-UwyO8pc ()J
+	public final fun getOnline-UwyO8pc ()J
+}
+
+public final class io/github/lexmerciful/connectivity/DebounceConfig$Builder {
+	public final fun getOffline-UwyO8pc ()J
+	public final fun getOnline-UwyO8pc ()J
+	public final fun setOffline-LRDsOJo (J)V
+	public final fun setOnline-LRDsOJo (J)V
+}
+
+public final class io/github/lexmerciful/connectivity/DisconnectReason : java/lang/Enum {
+	public static final field Blocked Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static final field MonitorUnavailable Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static final field NoNetwork Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static final field NotValidated Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static final field ProbeFailed Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static final field RequestFailed Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/DisconnectReason;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/DisconnectReason;
+}
+
+public abstract interface annotation class io/github/lexmerciful/connectivity/ExperimentalConnectivityApi : java/lang/annotation/Annotation {
+}
+
+public final class io/github/lexmerciful/connectivity/FailurePolicy : java/lang/Enum {
+	public static final field AssumeOffline Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public static final field AssumeOnline Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public static final field Error Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/FailurePolicy;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/FailurePolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/HintConfig {
+	public final fun getApplyOnNativePlatforms ()Z
+	public final fun getOnRequestFailure ()Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public final fun getOnResponse ()Lio/github/lexmerciful/connectivity/ResponsePolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/HintConfig$Builder {
+	public final fun getApplyOnNativePlatforms ()Z
+	public final fun getOnRequestFailure ()Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public final fun getOnResponse ()Lio/github/lexmerciful/connectivity/ResponsePolicy;
+	public final fun setApplyOnNativePlatforms (Z)V
+	public final fun setOnRequestFailure (Lio/github/lexmerciful/connectivity/RequestFailurePolicy;)V
+	public final fun setOnResponse (Lio/github/lexmerciful/connectivity/ResponsePolicy;)V
+}
+
+public final class io/github/lexmerciful/connectivity/InitialState : java/lang/Enum {
+	public static final field AssumeOffline Lio/github/lexmerciful/connectivity/InitialState;
+	public static final field AssumeOnline Lio/github/lexmerciful/connectivity/InitialState;
+	public static final field Unknown Lio/github/lexmerciful/connectivity/InitialState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/InitialState;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/InitialState;
+}
+
+public final class io/github/lexmerciful/connectivity/IosConfig {
+	public final fun getUseMainQueue ()Z
+}
+
+public final class io/github/lexmerciful/connectivity/IosConfig$Builder {
+	public final fun getUseMainQueue ()Z
+	public final fun setUseMainQueue (Z)V
+}
+
+public final class io/github/lexmerciful/connectivity/ReconnectedPolicy : java/lang/Enum {
+	public static final field LiveTransitionsOnly Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+	public static final field OnResumeIfWasOffline Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/ReconnectedPolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/RequestFailurePolicy : java/lang/Enum {
+	public static final field Ignore Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public static final field MarkOffline Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public static final field Recheck Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/RequestFailurePolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/ResponsePolicy : java/lang/Enum {
+	public static final field Ignore Lio/github/lexmerciful/connectivity/ResponsePolicy;
+	public static final field MarkOnline Lio/github/lexmerciful/connectivity/ResponsePolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/ResponsePolicy;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/ResponsePolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/Transport : java/lang/Enum {
+	public static final field Cellular Lio/github/lexmerciful/connectivity/Transport;
+	public static final field Ethernet Lio/github/lexmerciful/connectivity/Transport;
+	public static final field Other Lio/github/lexmerciful/connectivity/Transport;
+	public static final field Unknown Lio/github/lexmerciful/connectivity/Transport;
+	public static final field Vpn Lio/github/lexmerciful/connectivity/Transport;
+	public static final field Wifi Lio/github/lexmerciful/connectivity/Transport;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/Transport;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/Transport;
+}
+
+public final class io/github/lexmerciful/connectivity/ValidationPolicy : java/lang/Enum {
+	public static final field ConnectedOnly Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public static final field ConnectedToGoOffline Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public static final field RequireValidated Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/ValidationPolicy;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/ValidationPolicy;
+}
+
+public final class io/github/lexmerciful/connectivity/config/DesktopConfig {
+	public final fun getCheckBound-UwyO8pc ()J
+	public final fun getConfirmOfflineAfter ()I
+	public final fun getDns ()Lio/github/lexmerciful/connectivity/config/DnsProbeConfig;
+	public final fun getHttp ()Lio/github/lexmerciful/connectivity/config/HttpProbeConfig;
+	public final fun getInterfaceFilter ()Lio/github/lexmerciful/connectivity/config/InterfaceFilter;
+	public final fun getInterfacePreCheck ()Z
+	public final fun getSchedule ()Lio/github/lexmerciful/connectivity/config/Schedule;
+	public final fun getStrategy ()Lio/github/lexmerciful/connectivity/config/ProbeStrategy;
+	public final fun getTcp ()Lio/github/lexmerciful/connectivity/config/TcpProbeConfig;
+}
+
+public final class io/github/lexmerciful/connectivity/config/DesktopConfig$Builder {
+	public final fun dns (Lkotlin/jvm/functions/Function1;)V
+	public final fun getCheckBound-UwyO8pc ()J
+	public final fun getConfirmOfflineAfter ()I
+	public final fun getInterfaceFilter ()Lio/github/lexmerciful/connectivity/config/InterfaceFilter;
+	public final fun getInterfacePreCheck ()Z
+	public final fun getSchedule ()Lio/github/lexmerciful/connectivity/config/Schedule;
+	public final fun getStrategy ()Lio/github/lexmerciful/connectivity/config/ProbeStrategy;
+	public final fun http (Lkotlin/jvm/functions/Function1;)V
+	public final fun setCheckBound-LRDsOJo (J)V
+	public final fun setConfirmOfflineAfter (I)V
+	public final fun setInterfaceFilter (Lio/github/lexmerciful/connectivity/config/InterfaceFilter;)V
+	public final fun setInterfacePreCheck (Z)V
+	public final fun setSchedule (Lio/github/lexmerciful/connectivity/config/Schedule;)V
+	public final fun setStrategy (Lio/github/lexmerciful/connectivity/config/ProbeStrategy;)V
+	public final fun tcp (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/github/lexmerciful/connectivity/config/DnsProbeConfig {
+	public final fun getHostname ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/DnsProbeConfig$Builder {
+	public final fun getHostname ()Ljava/lang/String;
+	public final fun setHostname (Ljava/lang/String;)V
+}
+
+public final class io/github/lexmerciful/connectivity/config/FetchMode : java/lang/Enum {
+	public static final field Cors Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public static final field NoCors Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public static final field SameOrigin Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/config/FetchMode;
+}
+
+public final class io/github/lexmerciful/connectivity/config/HostPort {
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun copy (Ljava/lang/String;I)Lio/github/lexmerciful/connectivity/config/HostPort;
+	public static synthetic fun copy$default (Lio/github/lexmerciful/connectivity/config/HostPort;Ljava/lang/String;IILjava/lang/Object;)Lio/github/lexmerciful/connectivity/config/HostPort;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHost ()Ljava/lang/String;
+	public final fun getPort ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/HttpProbeConfig {
+	public final fun getExpectedStatus ()Lkotlin/ranges/IntRange;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getTimeout-UwyO8pc ()J
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun getUseSystemProxy ()Z
+}
+
+public final class io/github/lexmerciful/connectivity/config/HttpProbeConfig$Builder {
+	public final fun getExpectedStatus ()Lkotlin/ranges/IntRange;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getTimeout-UwyO8pc ()J
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun getUseSystemProxy ()Z
+	public final fun setExpectedStatus (Lkotlin/ranges/IntRange;)V
+	public final fun setHeaders (Ljava/util/Map;)V
+	public final fun setMethod (Ljava/lang/String;)V
+	public final fun setTimeout-LRDsOJo (J)V
+	public final fun setUrl (Ljava/lang/String;)V
+	public final fun setUseSystemProxy (Z)V
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/config/InterfaceFilter {
+	public static final field Companion Lio/github/lexmerciful/connectivity/config/InterfaceFilter$Companion;
+	public abstract fun isUsable (Lio/github/lexmerciful/connectivity/config/InterfaceInfo;)Z
+}
+
+public final class io/github/lexmerciful/connectivity/config/InterfaceFilter$Companion {
+	public final fun getDefault ()Lio/github/lexmerciful/connectivity/config/InterfaceFilter;
+}
+
+public final class io/github/lexmerciful/connectivity/config/InterfaceInfo {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZZZZ)V
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getHasRoutableAddress ()Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun isLoopback ()Z
+	public final fun isUp ()Z
+	public final fun isVirtual ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeOrder : java/lang/Enum {
+	public static final field Parallel Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+	public static final field Sequential Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+	public static fun values ()[Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/config/ProbeStrategy {
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$Custom : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final fun getCheck ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$Dns : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeStrategy$Dns;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$HintsOnly : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeStrategy$HintsOnly;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$Http : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeStrategy$Http;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$InterfacesOnly : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeStrategy$InterfacesOnly;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeStrategy$Tcp : io/github/lexmerciful/connectivity/config/ProbeStrategy {
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeStrategy$Tcp;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/ProbeTargets {
+	public static final field Generate204Url Ljava/lang/String;
+	public static final field INSTANCE Lio/github/lexmerciful/connectivity/config/ProbeTargets;
+	public final fun fromUrl (Ljava/lang/String;)Lio/github/lexmerciful/connectivity/config/HostPort;
+	public final fun getPublicResolvers ()Ljava/util/List;
+	public final fun getPublicResolversV4 ()Ljava/util/List;
+	public final fun getPublicResolversV6 ()Ljava/util/List;
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/config/Schedule {
+}
+
+public final class io/github/lexmerciful/connectivity/config/Schedule$Adaptive : io/github/lexmerciful/connectivity/config/Schedule {
+	public fun <init> ()V
+	public synthetic fun <init> (JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getOffline-UwyO8pc ()J
+	public final fun getOnline-UwyO8pc ()J
+}
+
+public final class io/github/lexmerciful/connectivity/config/Schedule$Backoff : io/github/lexmerciful/connectivity/config/Schedule {
+	public fun <init> ()V
+	public synthetic fun <init> (JJDJDILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJDJDLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFactor ()D
+	public final fun getInitial-UwyO8pc ()J
+	public final fun getJitter ()D
+	public final fun getMax-UwyO8pc ()J
+	public final fun getOnline-UwyO8pc ()J
+}
+
+public final class io/github/lexmerciful/connectivity/config/Schedule$Custom : io/github/lexmerciful/connectivity/config/Schedule {
+	public fun <init> (Lio/github/lexmerciful/connectivity/config/Schedule$NextCheck;)V
+	public final fun getNext ()Lio/github/lexmerciful/connectivity/config/Schedule$NextCheck;
+}
+
+public final class io/github/lexmerciful/connectivity/config/Schedule$Fixed : io/github/lexmerciful/connectivity/config/Schedule {
+	public synthetic fun <init> (JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getInterval-UwyO8pc ()J
+}
+
+public abstract interface class io/github/lexmerciful/connectivity/config/Schedule$NextCheck {
+	public abstract fun delay-3nIYWDw (ZI)J
+}
+
+public final class io/github/lexmerciful/connectivity/config/TcpProbeConfig {
+	public final fun getConnectTimeout-UwyO8pc ()J
+	public final fun getOrder ()Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+	public final fun getTargets ()Ljava/util/List;
+}
+
+public final class io/github/lexmerciful/connectivity/config/TcpProbeConfig$Builder {
+	public final fun getConnectTimeout-UwyO8pc ()J
+	public final fun getOrder ()Lio/github/lexmerciful/connectivity/config/ProbeOrder;
+	public final fun getTargets ()Ljava/util/List;
+	public final fun setConnectTimeout-LRDsOJo (J)V
+	public final fun setOrder (Lio/github/lexmerciful/connectivity/config/ProbeOrder;)V
+	public final fun setTargets (Ljava/util/List;)V
+}
+
+public final class io/github/lexmerciful/connectivity/config/WebConfig {
+	public final fun getProbe ()Lio/github/lexmerciful/connectivity/config/WebProbeConfig;
+}
+
+public final class io/github/lexmerciful/connectivity/config/WebConfig$Builder {
+	public final fun probe (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class io/github/lexmerciful/connectivity/config/WebProbeConfig {
+	public final fun getConfirmOfflineAfter ()I
+	public final fun getEnabled ()Z
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getMode ()Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public final fun getOnlyWhenNavigatorOnline ()Z
+	public final fun getPauseWhenHidden ()Z
+	public final fun getSchedule ()Lio/github/lexmerciful/connectivity/config/Schedule;
+	public final fun getTimeout-UwyO8pc ()J
+	public final fun getUrl ()Ljava/lang/String;
+}
+
+public final class io/github/lexmerciful/connectivity/config/WebProbeConfig$Builder {
+	public final fun getConfirmOfflineAfter ()I
+	public final fun getEnabled ()Z
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getMode ()Lio/github/lexmerciful/connectivity/config/FetchMode;
+	public final fun getOnlyWhenNavigatorOnline ()Z
+	public final fun getPauseWhenHidden ()Z
+	public final fun getSchedule ()Lio/github/lexmerciful/connectivity/config/Schedule;
+	public final fun getTimeout-UwyO8pc ()J
+	public final fun getUrl ()Ljava/lang/String;
+	public final fun setConfirmOfflineAfter (I)V
+	public final fun setEnabled (Z)V
+	public final fun setMethod (Ljava/lang/String;)V
+	public final fun setMode (Lio/github/lexmerciful/connectivity/config/FetchMode;)V
+	public final fun setOnlyWhenNavigatorOnline (Z)V
+	public final fun setPauseWhenHidden (Z)V
+	public final fun setSchedule (Lio/github/lexmerciful/connectivity/config/Schedule;)V
+	public final fun setTimeout-LRDsOJo (J)V
+	public final fun setUrl (Ljava/lang/String;)V
+}
+

@@ -1,0 +1,94 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, js, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <kmp-connectivity-manager:connectivity-compose>
+final enum class io.github.lexmerciful.connectivity.compose/ConnectivityStripState : kotlin/Enum<io.github.lexmerciful.connectivity.compose/ConnectivityStripState> { // io.github.lexmerciful.connectivity.compose/ConnectivityStripState|null[0]
+    enum entry BackOnline // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.BackOnline|null[0]
+    enum entry Offline // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.Offline|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity.compose/ConnectivityStripState> // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity.compose/ConnectivityStripState // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity.compose/ConnectivityStripState> // io.github.lexmerciful.connectivity.compose/ConnectivityStripState.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity.compose/StripMode : kotlin/Enum<io.github.lexmerciful.connectivity.compose/StripMode> { // io.github.lexmerciful.connectivity.compose/StripMode|null[0]
+    enum entry Overlay // io.github.lexmerciful.connectivity.compose/StripMode.Overlay|null[0]
+    enum entry PushContent // io.github.lexmerciful.connectivity.compose/StripMode.PushContent|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity.compose/StripMode.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity.compose/StripMode> // io.github.lexmerciful.connectivity.compose/StripMode.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity.compose/StripMode // io.github.lexmerciful.connectivity.compose/StripMode.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity.compose/StripMode> // io.github.lexmerciful.connectivity.compose/StripMode.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity.compose/StripPosition : kotlin/Enum<io.github.lexmerciful.connectivity.compose/StripPosition> { // io.github.lexmerciful.connectivity.compose/StripPosition|null[0]
+    enum entry Bottom // io.github.lexmerciful.connectivity.compose/StripPosition.Bottom|null[0]
+    enum entry Top // io.github.lexmerciful.connectivity.compose/StripPosition.Top|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity.compose/StripPosition.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity.compose/StripPosition> // io.github.lexmerciful.connectivity.compose/StripPosition.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity.compose/StripPosition // io.github.lexmerciful.connectivity.compose/StripPosition.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity.compose/StripPosition> // io.github.lexmerciful.connectivity.compose/StripPosition.values|values#static(){}[0]
+}
+
+final class io.github.lexmerciful.connectivity.compose/BackOnlineConfig { // io.github.lexmerciful.connectivity.compose/BackOnlineConfig|null[0]
+    constructor <init>(kotlin.time/Duration = ...) // io.github.lexmerciful.connectivity.compose/BackOnlineConfig.<init>|<init>(kotlin.time.Duration){}[0]
+
+    final val duration // io.github.lexmerciful.connectivity.compose/BackOnlineConfig.duration|{}duration[0]
+        final fun <get-duration>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.compose/BackOnlineConfig.duration.<get-duration>|<get-duration>(){}[0]
+}
+
+final class io.github.lexmerciful.connectivity.compose/ConnectivityStripColors { // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors|null[0]
+    constructor <init>(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color) // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.<init>|<init>(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color){}[0]
+
+    final val backOnlineContainerColor // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.backOnlineContainerColor|{}backOnlineContainerColor[0]
+        final fun <get-backOnlineContainerColor>(): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.backOnlineContainerColor.<get-backOnlineContainerColor>|<get-backOnlineContainerColor>(){}[0]
+    final val backOnlineContentColor // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.backOnlineContentColor|{}backOnlineContentColor[0]
+        final fun <get-backOnlineContentColor>(): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.backOnlineContentColor.<get-backOnlineContentColor>|<get-backOnlineContentColor>(){}[0]
+    final val offlineContainerColor // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.offlineContainerColor|{}offlineContainerColor[0]
+        final fun <get-offlineContainerColor>(): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.offlineContainerColor.<get-offlineContainerColor>|<get-offlineContainerColor>(){}[0]
+    final val offlineContentColor // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.offlineContentColor|{}offlineContentColor[0]
+        final fun <get-offlineContentColor>(): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.offlineContentColor.<get-offlineContentColor>|<get-offlineContentColor>(){}[0]
+
+    final fun containerColor(io.github.lexmerciful.connectivity.compose/ConnectivityStripState): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.containerColor|containerColor(io.github.lexmerciful.connectivity.compose.ConnectivityStripState){}[0]
+    final fun contentColor(io.github.lexmerciful.connectivity.compose/ConnectivityStripState): androidx.compose.ui.graphics/Color // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.contentColor|contentColor(io.github.lexmerciful.connectivity.compose.ConnectivityStripState){}[0]
+    final fun copy(androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ..., androidx.compose.ui.graphics/Color = ...): io.github.lexmerciful.connectivity.compose/ConnectivityStripColors // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.copy|copy(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.compose/ConnectivityStripColors.hashCode|hashCode(){}[0]
+}
+
+final object io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults { // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults|null[0]
+    final const val BackOnlineText // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.BackOnlineText|{}BackOnlineText[0]
+        final fun <get-BackOnlineText>(): kotlin/String // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.BackOnlineText.<get-BackOnlineText>|<get-BackOnlineText>(){}[0]
+    final const val OfflineText // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.OfflineText|{}OfflineText[0]
+        final fun <get-OfflineText>(): kotlin/String // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.OfflineText.<get-OfflineText>|<get-OfflineText>(){}[0]
+    final const val TestTag // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.TestTag|{}TestTag[0]
+        final fun <get-TestTag>(): kotlin/String // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.TestTag.<get-TestTag>|<get-TestTag>(){}[0]
+
+    final val ContentPadding // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.ContentPadding|{}ContentPadding[0]
+        final fun <get-ContentPadding>(): androidx.compose.foundation.layout/PaddingValues // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.ContentPadding.<get-ContentPadding>|<get-ContentPadding>(){}[0]
+
+    final fun colors(androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.ui.graphics/Color, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): io.github.lexmerciful.connectivity.compose/ConnectivityStripColors // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.colors|colors(androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.ui.graphics.Color;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+    final fun enter(io.github.lexmerciful.connectivity.compose/StripPosition): androidx.compose.animation/EnterTransition // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.enter|enter(io.github.lexmerciful.connectivity.compose.StripPosition){}[0]
+    final fun exit(io.github.lexmerciful.connectivity.compose/StripPosition): androidx.compose.animation/ExitTransition // io.github.lexmerciful.connectivity.compose/ConnectivityStripDefaults.exit|exit(io.github.lexmerciful.connectivity.compose.StripPosition){}[0]
+}
+
+final val io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop|#static{}io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop[0]
+final val io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop|#static{}io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop[0]
+final val io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop|#static{}io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop[0]
+
+final fun io.github.lexmerciful.connectivity.compose/ConnectivityStrip(io.github.lexmerciful.connectivity.compose/ConnectivityStripState?, androidx.compose.ui/Modifier?, kotlin/String?, kotlin/String?, io.github.lexmerciful.connectivity.compose/ConnectivityStripColors?, androidx.compose.ui.text/TextStyle?, androidx.compose.ui.graphics/Shape?, androidx.compose.foundation.layout/PaddingValues?, androidx.compose.ui.text.style/TextAlign, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.lexmerciful.connectivity.compose/ConnectivityStrip|ConnectivityStrip(io.github.lexmerciful.connectivity.compose.ConnectivityStripState?;androidx.compose.ui.Modifier?;kotlin.String?;kotlin.String?;io.github.lexmerciful.connectivity.compose.ConnectivityStripColors?;androidx.compose.ui.text.TextStyle?;androidx.compose.ui.graphics.Shape?;androidx.compose.foundation.layout.PaddingValues?;androidx.compose.ui.text.style.TextAlign;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.lexmerciful.connectivity.compose/ConnectivityStrip(io.github.lexmerciful.connectivity.compose/ConnectivityStripState?, androidx.compose.ui/Modifier?, kotlin/String?, kotlin/String?, io.github.lexmerciful.connectivity.compose/ConnectivityStripColors?, androidx.compose.ui.text/TextStyle?, androidx.compose.ui.graphics/Shape?, androidx.compose.foundation.layout/PaddingValues?, androidx.compose.ui.text.style/TextAlign?, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.lexmerciful.connectivity.compose/ConnectivityStrip|ConnectivityStrip(io.github.lexmerciful.connectivity.compose.ConnectivityStripState?;androidx.compose.ui.Modifier?;kotlin.String?;kotlin.String?;io.github.lexmerciful.connectivity.compose.ConnectivityStripColors?;androidx.compose.ui.text.TextStyle?;androidx.compose.ui.graphics.Shape?;androidx.compose.foundation.layout.PaddingValues?;androidx.compose.ui.text.style.TextAlign?;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.lexmerciful.connectivity.compose/ConnectivityStripLayout(io.github.lexmerciful.connectivity/ConnectivityMonitor, androidx.compose.ui/Modifier?, kotlin/Boolean, io.github.lexmerciful.connectivity.compose/StripPosition?, io.github.lexmerciful.connectivity.compose/StripMode?, androidx.compose.ui.graphics/Color, androidx.compose.animation/EnterTransition?, androidx.compose.animation/ExitTransition?, io.github.lexmerciful.connectivity.compose/BackOnlineConfig?, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.lexmerciful.connectivity.compose/ConnectivityStripLayout|ConnectivityStripLayout(io.github.lexmerciful.connectivity.ConnectivityMonitor;androidx.compose.ui.Modifier?;kotlin.Boolean;io.github.lexmerciful.connectivity.compose.StripPosition?;io.github.lexmerciful.connectivity.compose.StripMode?;androidx.compose.ui.graphics.Color;androidx.compose.animation.EnterTransition?;androidx.compose.animation.ExitTransition?;io.github.lexmerciful.connectivity.compose.BackOnlineConfig?;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.lexmerciful.connectivity.compose/ConnectivityStripLayout(kotlin/Boolean, androidx.compose.ui/Modifier?, kotlin/Boolean, io.github.lexmerciful.connectivity.compose/StripPosition?, io.github.lexmerciful.connectivity.compose/StripMode?, androidx.compose.ui.graphics/Color, androidx.compose.animation/EnterTransition?, androidx.compose.animation/ExitTransition?, io.github.lexmerciful.connectivity.compose/BackOnlineConfig?, kotlin/Function3<io.github.lexmerciful.connectivity.compose/ConnectivityStripState, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int, kotlin/Int) // io.github.lexmerciful.connectivity.compose/ConnectivityStripLayout|ConnectivityStripLayout(kotlin.Boolean;androidx.compose.ui.Modifier?;kotlin.Boolean;io.github.lexmerciful.connectivity.compose.StripPosition?;io.github.lexmerciful.connectivity.compose.StripMode?;androidx.compose.ui.graphics.Color;androidx.compose.animation.EnterTransition?;androidx.compose.animation.ExitTransition?;io.github.lexmerciful.connectivity.compose.BackOnlineConfig?;kotlin.Function3<io.github.lexmerciful.connectivity.compose.ConnectivityStripState,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop_getter(): kotlin/Int // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop_getter|io_github_lexmerciful_connectivity_compose_BackOnlineConfig$stableprop_getter(){}[0]
+final fun io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop_getter(): kotlin/Int // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop_getter|io_github_lexmerciful_connectivity_compose_ConnectivityStripColors$stableprop_getter(){}[0]
+final fun io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop_getter(): kotlin/Int // io.github.lexmerciful.connectivity.compose/io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop_getter|io_github_lexmerciful_connectivity_compose_ConnectivityStripDefaults$stableprop_getter(){}[0]

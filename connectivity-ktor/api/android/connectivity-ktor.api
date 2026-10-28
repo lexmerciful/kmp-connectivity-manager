@@ -1,0 +1,19 @@
+public final class io/github/lexmerciful/connectivity/ktor/ConnectivityHintsConfig {
+	public fun <init> ()V
+	public final fun getIgnore ()Lkotlin/jvm/functions/Function1;
+	public final fun getMonitor ()Lio/github/lexmerciful/connectivity/ConnectivityMonitor;
+	public final fun getReportFailures ()Z
+	public final fun getReportResponses ()Z
+	public final fun isConnectionFailure ()Lkotlin/jvm/functions/Function1;
+	public final fun setConnectionFailure (Lkotlin/jvm/functions/Function1;)V
+	public final fun setIgnore (Lkotlin/jvm/functions/Function1;)V
+	public final fun setMonitor (Lio/github/lexmerciful/connectivity/ConnectivityMonitor;)V
+	public final fun setReportFailures (Z)V
+	public final fun setReportResponses (Z)V
+}
+
+public final class io/github/lexmerciful/connectivity/ktor/ConnectivityHintsKt {
+	public static final fun getConnectivityHints ()Lio/ktor/client/plugins/api/ClientPlugin;
+	public static final fun isDefaultConnectionFailure (Ljava/lang/Throwable;)Z
+}
+

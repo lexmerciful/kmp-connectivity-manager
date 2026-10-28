@@ -1,0 +1,660 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, js, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <kmp-connectivity-manager:connectivity-core>
+open annotation class io.github.lexmerciful.connectivity/ConnectivityDsl : kotlin/Annotation { // io.github.lexmerciful.connectivity/ConnectivityDsl|null[0]
+    constructor <init>() // io.github.lexmerciful.connectivity/ConnectivityDsl.<init>|<init>(){}[0]
+}
+
+open annotation class io.github.lexmerciful.connectivity/ExperimentalConnectivityApi : kotlin/Annotation { // io.github.lexmerciful.connectivity/ExperimentalConnectivityApi|null[0]
+    constructor <init>() // io.github.lexmerciful.connectivity/ExperimentalConnectivityApi.<init>|<init>(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity.config/FetchMode : kotlin/Enum<io.github.lexmerciful.connectivity.config/FetchMode> { // io.github.lexmerciful.connectivity.config/FetchMode|null[0]
+    enum entry Cors // io.github.lexmerciful.connectivity.config/FetchMode.Cors|null[0]
+    enum entry NoCors // io.github.lexmerciful.connectivity.config/FetchMode.NoCors|null[0]
+    enum entry SameOrigin // io.github.lexmerciful.connectivity.config/FetchMode.SameOrigin|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity.config/FetchMode.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity.config/FetchMode> // io.github.lexmerciful.connectivity.config/FetchMode.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity.config/FetchMode // io.github.lexmerciful.connectivity.config/FetchMode.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity.config/FetchMode> // io.github.lexmerciful.connectivity.config/FetchMode.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity.config/ProbeOrder : kotlin/Enum<io.github.lexmerciful.connectivity.config/ProbeOrder> { // io.github.lexmerciful.connectivity.config/ProbeOrder|null[0]
+    enum entry Parallel // io.github.lexmerciful.connectivity.config/ProbeOrder.Parallel|null[0]
+    enum entry Sequential // io.github.lexmerciful.connectivity.config/ProbeOrder.Sequential|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity.config/ProbeOrder.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity.config/ProbeOrder> // io.github.lexmerciful.connectivity.config/ProbeOrder.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity.config/ProbeOrder // io.github.lexmerciful.connectivity.config/ProbeOrder.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity.config/ProbeOrder> // io.github.lexmerciful.connectivity.config/ProbeOrder.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/DisconnectReason : kotlin/Enum<io.github.lexmerciful.connectivity/DisconnectReason> { // io.github.lexmerciful.connectivity/DisconnectReason|null[0]
+    enum entry Blocked // io.github.lexmerciful.connectivity/DisconnectReason.Blocked|null[0]
+    enum entry MonitorUnavailable // io.github.lexmerciful.connectivity/DisconnectReason.MonitorUnavailable|null[0]
+    enum entry NoNetwork // io.github.lexmerciful.connectivity/DisconnectReason.NoNetwork|null[0]
+    enum entry NotValidated // io.github.lexmerciful.connectivity/DisconnectReason.NotValidated|null[0]
+    enum entry ProbeFailed // io.github.lexmerciful.connectivity/DisconnectReason.ProbeFailed|null[0]
+    enum entry RequestFailed // io.github.lexmerciful.connectivity/DisconnectReason.RequestFailed|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/DisconnectReason.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/DisconnectReason> // io.github.lexmerciful.connectivity/DisconnectReason.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/DisconnectReason // io.github.lexmerciful.connectivity/DisconnectReason.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/DisconnectReason> // io.github.lexmerciful.connectivity/DisconnectReason.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/FailurePolicy : kotlin/Enum<io.github.lexmerciful.connectivity/FailurePolicy> { // io.github.lexmerciful.connectivity/FailurePolicy|null[0]
+    enum entry AssumeOffline // io.github.lexmerciful.connectivity/FailurePolicy.AssumeOffline|null[0]
+    enum entry AssumeOnline // io.github.lexmerciful.connectivity/FailurePolicy.AssumeOnline|null[0]
+    enum entry Error // io.github.lexmerciful.connectivity/FailurePolicy.Error|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/FailurePolicy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/FailurePolicy> // io.github.lexmerciful.connectivity/FailurePolicy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/FailurePolicy // io.github.lexmerciful.connectivity/FailurePolicy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/FailurePolicy> // io.github.lexmerciful.connectivity/FailurePolicy.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/InitialState : kotlin/Enum<io.github.lexmerciful.connectivity/InitialState> { // io.github.lexmerciful.connectivity/InitialState|null[0]
+    enum entry AssumeOffline // io.github.lexmerciful.connectivity/InitialState.AssumeOffline|null[0]
+    enum entry AssumeOnline // io.github.lexmerciful.connectivity/InitialState.AssumeOnline|null[0]
+    enum entry Unknown // io.github.lexmerciful.connectivity/InitialState.Unknown|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/InitialState.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/InitialState> // io.github.lexmerciful.connectivity/InitialState.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/InitialState // io.github.lexmerciful.connectivity/InitialState.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/InitialState> // io.github.lexmerciful.connectivity/InitialState.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/ReconnectedPolicy : kotlin/Enum<io.github.lexmerciful.connectivity/ReconnectedPolicy> { // io.github.lexmerciful.connectivity/ReconnectedPolicy|null[0]
+    enum entry LiveTransitionsOnly // io.github.lexmerciful.connectivity/ReconnectedPolicy.LiveTransitionsOnly|null[0]
+    enum entry OnResumeIfWasOffline // io.github.lexmerciful.connectivity/ReconnectedPolicy.OnResumeIfWasOffline|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/ReconnectedPolicy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/ReconnectedPolicy> // io.github.lexmerciful.connectivity/ReconnectedPolicy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/ReconnectedPolicy // io.github.lexmerciful.connectivity/ReconnectedPolicy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/ReconnectedPolicy> // io.github.lexmerciful.connectivity/ReconnectedPolicy.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/RequestFailurePolicy : kotlin/Enum<io.github.lexmerciful.connectivity/RequestFailurePolicy> { // io.github.lexmerciful.connectivity/RequestFailurePolicy|null[0]
+    enum entry Ignore // io.github.lexmerciful.connectivity/RequestFailurePolicy.Ignore|null[0]
+    enum entry MarkOffline // io.github.lexmerciful.connectivity/RequestFailurePolicy.MarkOffline|null[0]
+    enum entry Recheck // io.github.lexmerciful.connectivity/RequestFailurePolicy.Recheck|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/RequestFailurePolicy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/RequestFailurePolicy> // io.github.lexmerciful.connectivity/RequestFailurePolicy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/RequestFailurePolicy // io.github.lexmerciful.connectivity/RequestFailurePolicy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/RequestFailurePolicy> // io.github.lexmerciful.connectivity/RequestFailurePolicy.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/ResponsePolicy : kotlin/Enum<io.github.lexmerciful.connectivity/ResponsePolicy> { // io.github.lexmerciful.connectivity/ResponsePolicy|null[0]
+    enum entry Ignore // io.github.lexmerciful.connectivity/ResponsePolicy.Ignore|null[0]
+    enum entry MarkOnline // io.github.lexmerciful.connectivity/ResponsePolicy.MarkOnline|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/ResponsePolicy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/ResponsePolicy> // io.github.lexmerciful.connectivity/ResponsePolicy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/ResponsePolicy // io.github.lexmerciful.connectivity/ResponsePolicy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/ResponsePolicy> // io.github.lexmerciful.connectivity/ResponsePolicy.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/Transport : kotlin/Enum<io.github.lexmerciful.connectivity/Transport> { // io.github.lexmerciful.connectivity/Transport|null[0]
+    enum entry Cellular // io.github.lexmerciful.connectivity/Transport.Cellular|null[0]
+    enum entry Ethernet // io.github.lexmerciful.connectivity/Transport.Ethernet|null[0]
+    enum entry Other // io.github.lexmerciful.connectivity/Transport.Other|null[0]
+    enum entry Unknown // io.github.lexmerciful.connectivity/Transport.Unknown|null[0]
+    enum entry Vpn // io.github.lexmerciful.connectivity/Transport.Vpn|null[0]
+    enum entry Wifi // io.github.lexmerciful.connectivity/Transport.Wifi|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/Transport.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/Transport> // io.github.lexmerciful.connectivity/Transport.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/Transport // io.github.lexmerciful.connectivity/Transport.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/Transport> // io.github.lexmerciful.connectivity/Transport.values|values#static(){}[0]
+}
+
+final enum class io.github.lexmerciful.connectivity/ValidationPolicy : kotlin/Enum<io.github.lexmerciful.connectivity/ValidationPolicy> { // io.github.lexmerciful.connectivity/ValidationPolicy|null[0]
+    enum entry ConnectedOnly // io.github.lexmerciful.connectivity/ValidationPolicy.ConnectedOnly|null[0]
+    enum entry ConnectedToGoOffline // io.github.lexmerciful.connectivity/ValidationPolicy.ConnectedToGoOffline|null[0]
+    enum entry RequireValidated // io.github.lexmerciful.connectivity/ValidationPolicy.RequireValidated|null[0]
+
+    final val entries // io.github.lexmerciful.connectivity/ValidationPolicy.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/ValidationPolicy> // io.github.lexmerciful.connectivity/ValidationPolicy.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/ValidationPolicy // io.github.lexmerciful.connectivity/ValidationPolicy.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/ValidationPolicy> // io.github.lexmerciful.connectivity/ValidationPolicy.values|values#static(){}[0]
+}
+
+abstract fun interface io.github.lexmerciful.connectivity.config/InterfaceFilter { // io.github.lexmerciful.connectivity.config/InterfaceFilter|null[0]
+    abstract fun isUsable(io.github.lexmerciful.connectivity.config/InterfaceInfo): kotlin/Boolean // io.github.lexmerciful.connectivity.config/InterfaceFilter.isUsable|isUsable(io.github.lexmerciful.connectivity.config.InterfaceInfo){}[0]
+
+    final object Companion { // io.github.lexmerciful.connectivity.config/InterfaceFilter.Companion|null[0]
+        final val Default // io.github.lexmerciful.connectivity.config/InterfaceFilter.Companion.Default|{}Default[0]
+            final fun <get-Default>(): io.github.lexmerciful.connectivity.config/InterfaceFilter // io.github.lexmerciful.connectivity.config/InterfaceFilter.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+abstract fun interface io.github.lexmerciful.connectivity/ConnectivityLogger { // io.github.lexmerciful.connectivity/ConnectivityLogger|null[0]
+    abstract fun log(io.github.lexmerciful.connectivity/ConnectivityLogger.Level, kotlin/String, kotlin/Throwable?) // io.github.lexmerciful.connectivity/ConnectivityLogger.log|log(io.github.lexmerciful.connectivity.ConnectivityLogger.Level;kotlin.String;kotlin.Throwable?){}[0]
+
+    final enum class Level : kotlin/Enum<io.github.lexmerciful.connectivity/ConnectivityLogger.Level> { // io.github.lexmerciful.connectivity/ConnectivityLogger.Level|null[0]
+        enum entry Debug // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.Debug|null[0]
+        enum entry Error // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.Error|null[0]
+        enum entry Warning // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.Warning|null[0]
+
+        final val entries // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.lexmerciful.connectivity/ConnectivityLogger.Level> // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): io.github.lexmerciful.connectivity/ConnectivityLogger.Level // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<io.github.lexmerciful.connectivity/ConnectivityLogger.Level> // io.github.lexmerciful.connectivity/ConnectivityLogger.Level.values|values#static(){}[0]
+    }
+
+    final object Companion { // io.github.lexmerciful.connectivity/ConnectivityLogger.Companion|null[0]
+        final val None // io.github.lexmerciful.connectivity/ConnectivityLogger.Companion.None|{}None[0]
+            final fun <get-None>(): io.github.lexmerciful.connectivity/ConnectivityLogger // io.github.lexmerciful.connectivity/ConnectivityLogger.Companion.None.<get-None>|<get-None>(){}[0]
+        final val Println // io.github.lexmerciful.connectivity/ConnectivityLogger.Companion.Println|{}Println[0]
+            final fun <get-Println>(): io.github.lexmerciful.connectivity/ConnectivityLogger // io.github.lexmerciful.connectivity/ConnectivityLogger.Companion.Println.<get-Println>|<get-Println>(){}[0]
+    }
+}
+
+abstract interface io.github.lexmerciful.connectivity/ConnectivityMonitor : kotlin/AutoCloseable { // io.github.lexmerciful.connectivity/ConnectivityMonitor|null[0]
+    abstract val isConnected // io.github.lexmerciful.connectivity/ConnectivityMonitor.isConnected|{}isConnected[0]
+        abstract fun <get-isConnected>(): kotlinx.coroutines.flow/StateFlow<kotlin/Boolean> // io.github.lexmerciful.connectivity/ConnectivityMonitor.isConnected.<get-isConnected>|<get-isConnected>(){}[0]
+    abstract val reconnected // io.github.lexmerciful.connectivity/ConnectivityMonitor.reconnected|{}reconnected[0]
+        abstract fun <get-reconnected>(): kotlinx.coroutines.flow/Flow<kotlin/Unit> // io.github.lexmerciful.connectivity/ConnectivityMonitor.reconnected.<get-reconnected>|<get-reconnected>(){}[0]
+    abstract val status // io.github.lexmerciful.connectivity/ConnectivityMonitor.status|{}status[0]
+        abstract fun <get-status>(): kotlinx.coroutines.flow/StateFlow<io.github.lexmerciful.connectivity/ConnectivityStatus> // io.github.lexmerciful.connectivity/ConnectivityMonitor.status.<get-status>|<get-status>(){}[0]
+
+    abstract fun close() // io.github.lexmerciful.connectivity/ConnectivityMonitor.close|close(){}[0]
+    abstract fun reportReachable() // io.github.lexmerciful.connectivity/ConnectivityMonitor.reportReachable|reportReachable(){}[0]
+    abstract fun requestRecheck() // io.github.lexmerciful.connectivity/ConnectivityMonitor.requestRecheck|requestRecheck(){}[0]
+}
+
+sealed interface io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy|null[0]
+    final class Custom : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.Custom|null[0]
+        constructor <init>(kotlin.coroutines/SuspendFunction0<kotlin/Boolean>) // io.github.lexmerciful.connectivity.config/ProbeStrategy.Custom.<init>|<init>(kotlin.coroutines.SuspendFunction0<kotlin.Boolean>){}[0]
+
+        final val check // io.github.lexmerciful.connectivity.config/ProbeStrategy.Custom.check|{}check[0]
+            final fun <get-check>(): kotlin.coroutines/SuspendFunction0<kotlin/Boolean> // io.github.lexmerciful.connectivity.config/ProbeStrategy.Custom.check.<get-check>|<get-check>(){}[0]
+    }
+
+    final object Dns : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.Dns|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/ProbeStrategy.Dns.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/ProbeStrategy.Dns.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeStrategy.Dns.toString|toString(){}[0]
+    }
+
+    final object HintsOnly : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.HintsOnly|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/ProbeStrategy.HintsOnly.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/ProbeStrategy.HintsOnly.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeStrategy.HintsOnly.toString|toString(){}[0]
+    }
+
+    final object Http : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.Http|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/ProbeStrategy.Http.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/ProbeStrategy.Http.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeStrategy.Http.toString|toString(){}[0]
+    }
+
+    final object InterfacesOnly : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.InterfacesOnly|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/ProbeStrategy.InterfacesOnly.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/ProbeStrategy.InterfacesOnly.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeStrategy.InterfacesOnly.toString|toString(){}[0]
+    }
+
+    final object Tcp : io.github.lexmerciful.connectivity.config/ProbeStrategy { // io.github.lexmerciful.connectivity.config/ProbeStrategy.Tcp|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/ProbeStrategy.Tcp.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/ProbeStrategy.Tcp.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeStrategy.Tcp.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.lexmerciful.connectivity.config/Schedule { // io.github.lexmerciful.connectivity.config/Schedule|null[0]
+    abstract fun interface NextCheck { // io.github.lexmerciful.connectivity.config/Schedule.NextCheck|null[0]
+        abstract fun delay(kotlin/Boolean, kotlin/Int): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.NextCheck.delay|delay(kotlin.Boolean;kotlin.Int){}[0]
+    }
+
+    final class Adaptive : io.github.lexmerciful.connectivity.config/Schedule { // io.github.lexmerciful.connectivity.config/Schedule.Adaptive|null[0]
+        constructor <init>(kotlin.time/Duration = ..., kotlin.time/Duration = ...) // io.github.lexmerciful.connectivity.config/Schedule.Adaptive.<init>|<init>(kotlin.time.Duration;kotlin.time.Duration){}[0]
+
+        final val offline // io.github.lexmerciful.connectivity.config/Schedule.Adaptive.offline|{}offline[0]
+            final fun <get-offline>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Adaptive.offline.<get-offline>|<get-offline>(){}[0]
+        final val online // io.github.lexmerciful.connectivity.config/Schedule.Adaptive.online|{}online[0]
+            final fun <get-online>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Adaptive.online.<get-online>|<get-online>(){}[0]
+    }
+
+    final class Backoff : io.github.lexmerciful.connectivity.config/Schedule { // io.github.lexmerciful.connectivity.config/Schedule.Backoff|null[0]
+        constructor <init>(kotlin.time/Duration = ..., kotlin.time/Duration = ..., kotlin/Double = ..., kotlin.time/Duration = ..., kotlin/Double = ...) // io.github.lexmerciful.connectivity.config/Schedule.Backoff.<init>|<init>(kotlin.time.Duration;kotlin.time.Duration;kotlin.Double;kotlin.time.Duration;kotlin.Double){}[0]
+
+        final val factor // io.github.lexmerciful.connectivity.config/Schedule.Backoff.factor|{}factor[0]
+            final fun <get-factor>(): kotlin/Double // io.github.lexmerciful.connectivity.config/Schedule.Backoff.factor.<get-factor>|<get-factor>(){}[0]
+        final val initial // io.github.lexmerciful.connectivity.config/Schedule.Backoff.initial|{}initial[0]
+            final fun <get-initial>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Backoff.initial.<get-initial>|<get-initial>(){}[0]
+        final val jitter // io.github.lexmerciful.connectivity.config/Schedule.Backoff.jitter|{}jitter[0]
+            final fun <get-jitter>(): kotlin/Double // io.github.lexmerciful.connectivity.config/Schedule.Backoff.jitter.<get-jitter>|<get-jitter>(){}[0]
+        final val max // io.github.lexmerciful.connectivity.config/Schedule.Backoff.max|{}max[0]
+            final fun <get-max>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Backoff.max.<get-max>|<get-max>(){}[0]
+        final val online // io.github.lexmerciful.connectivity.config/Schedule.Backoff.online|{}online[0]
+            final fun <get-online>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Backoff.online.<get-online>|<get-online>(){}[0]
+    }
+
+    final class Custom : io.github.lexmerciful.connectivity.config/Schedule { // io.github.lexmerciful.connectivity.config/Schedule.Custom|null[0]
+        constructor <init>(io.github.lexmerciful.connectivity.config/Schedule.NextCheck) // io.github.lexmerciful.connectivity.config/Schedule.Custom.<init>|<init>(io.github.lexmerciful.connectivity.config.Schedule.NextCheck){}[0]
+
+        final val next // io.github.lexmerciful.connectivity.config/Schedule.Custom.next|{}next[0]
+            final fun <get-next>(): io.github.lexmerciful.connectivity.config/Schedule.NextCheck // io.github.lexmerciful.connectivity.config/Schedule.Custom.next.<get-next>|<get-next>(){}[0]
+    }
+
+    final class Fixed : io.github.lexmerciful.connectivity.config/Schedule { // io.github.lexmerciful.connectivity.config/Schedule.Fixed|null[0]
+        constructor <init>(kotlin.time/Duration) // io.github.lexmerciful.connectivity.config/Schedule.Fixed.<init>|<init>(kotlin.time.Duration){}[0]
+
+        final val interval // io.github.lexmerciful.connectivity.config/Schedule.Fixed.interval|{}interval[0]
+            final fun <get-interval>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/Schedule.Fixed.interval.<get-interval>|<get-interval>(){}[0]
+    }
+}
+
+sealed interface io.github.lexmerciful.connectivity/ConnectivityStatus { // io.github.lexmerciful.connectivity/ConnectivityStatus|null[0]
+    final class Connected : io.github.lexmerciful.connectivity/ConnectivityStatus { // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected|null[0]
+        constructor <init>(io.github.lexmerciful.connectivity/Transport = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ...) // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.<init>|<init>(io.github.lexmerciful.connectivity.Transport;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?){}[0]
+
+        final val isConstrained // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isConstrained|{}isConstrained[0]
+            final fun <get-isConstrained>(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isConstrained.<get-isConstrained>|<get-isConstrained>(){}[0]
+        final val isMetered // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isMetered|{}isMetered[0]
+            final fun <get-isMetered>(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isMetered.<get-isMetered>|<get-isMetered>(){}[0]
+        final val isValidated // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isValidated|{}isValidated[0]
+            final fun <get-isValidated>(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.isValidated.<get-isValidated>|<get-isValidated>(){}[0]
+        final val transport // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.transport|{}transport[0]
+            final fun <get-transport>(): io.github.lexmerciful.connectivity/Transport // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.transport.<get-transport>|<get-transport>(){}[0]
+
+        final fun component1(): io.github.lexmerciful.connectivity/Transport // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.component1|component1(){}[0]
+        final fun component2(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.component2|component2(){}[0]
+        final fun component3(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean? // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.component4|component4(){}[0]
+        final fun copy(io.github.lexmerciful.connectivity/Transport = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ...): io.github.lexmerciful.connectivity/ConnectivityStatus.Connected // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.copy|copy(io.github.lexmerciful.connectivity.Transport;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity/ConnectivityStatus.Connected.toString|toString(){}[0]
+    }
+
+    final class Disconnected : io.github.lexmerciful.connectivity/ConnectivityStatus { // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected|null[0]
+        constructor <init>(io.github.lexmerciful.connectivity/DisconnectReason = ...) // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.<init>|<init>(io.github.lexmerciful.connectivity.DisconnectReason){}[0]
+
+        final val reason // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.reason|{}reason[0]
+            final fun <get-reason>(): io.github.lexmerciful.connectivity/DisconnectReason // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.reason.<get-reason>|<get-reason>(){}[0]
+
+        final fun component1(): io.github.lexmerciful.connectivity/DisconnectReason // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.component1|component1(){}[0]
+        final fun copy(io.github.lexmerciful.connectivity/DisconnectReason = ...): io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.copy|copy(io.github.lexmerciful.connectivity.DisconnectReason){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity/ConnectivityStatus.Disconnected.toString|toString(){}[0]
+    }
+
+    final class MonitorError : io.github.lexmerciful.connectivity/ConnectivityStatus { // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError|null[0]
+        constructor <init>(kotlin/Throwable) // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.<init>|<init>(kotlin.Throwable){}[0]
+
+        final val cause // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.cause|{}cause[0]
+            final fun <get-cause>(): kotlin/Throwable // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.cause.<get-cause>|<get-cause>(){}[0]
+
+        final fun component1(): kotlin/Throwable // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.component1|component1(){}[0]
+        final fun copy(kotlin/Throwable = ...): io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.copy|copy(kotlin.Throwable){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity/ConnectivityStatus.MonitorError.toString|toString(){}[0]
+    }
+
+    final object Unknown : io.github.lexmerciful.connectivity/ConnectivityStatus { // io.github.lexmerciful.connectivity/ConnectivityStatus.Unknown|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity/ConnectivityStatus.Unknown.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity/ConnectivityStatus.Unknown.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.lexmerciful.connectivity/ConnectivityStatus.Unknown.toString|toString(){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/DesktopConfig { // io.github.lexmerciful.connectivity.config/DesktopConfig|null[0]
+    final val checkBound // io.github.lexmerciful.connectivity.config/DesktopConfig.checkBound|{}checkBound[0]
+        final fun <get-checkBound>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/DesktopConfig.checkBound.<get-checkBound>|<get-checkBound>(){}[0]
+    final val confirmOfflineAfter // io.github.lexmerciful.connectivity.config/DesktopConfig.confirmOfflineAfter|{}confirmOfflineAfter[0]
+        final fun <get-confirmOfflineAfter>(): kotlin/Int // io.github.lexmerciful.connectivity.config/DesktopConfig.confirmOfflineAfter.<get-confirmOfflineAfter>|<get-confirmOfflineAfter>(){}[0]
+    final val dns // io.github.lexmerciful.connectivity.config/DesktopConfig.dns|{}dns[0]
+        final fun <get-dns>(): io.github.lexmerciful.connectivity.config/DnsProbeConfig // io.github.lexmerciful.connectivity.config/DesktopConfig.dns.<get-dns>|<get-dns>(){}[0]
+    final val http // io.github.lexmerciful.connectivity.config/DesktopConfig.http|{}http[0]
+        final fun <get-http>(): io.github.lexmerciful.connectivity.config/HttpProbeConfig // io.github.lexmerciful.connectivity.config/DesktopConfig.http.<get-http>|<get-http>(){}[0]
+    final val interfaceFilter // io.github.lexmerciful.connectivity.config/DesktopConfig.interfaceFilter|{}interfaceFilter[0]
+        final fun <get-interfaceFilter>(): io.github.lexmerciful.connectivity.config/InterfaceFilter // io.github.lexmerciful.connectivity.config/DesktopConfig.interfaceFilter.<get-interfaceFilter>|<get-interfaceFilter>(){}[0]
+    final val interfacePreCheck // io.github.lexmerciful.connectivity.config/DesktopConfig.interfacePreCheck|{}interfacePreCheck[0]
+        final fun <get-interfacePreCheck>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/DesktopConfig.interfacePreCheck.<get-interfacePreCheck>|<get-interfacePreCheck>(){}[0]
+    final val schedule // io.github.lexmerciful.connectivity.config/DesktopConfig.schedule|{}schedule[0]
+        final fun <get-schedule>(): io.github.lexmerciful.connectivity.config/Schedule // io.github.lexmerciful.connectivity.config/DesktopConfig.schedule.<get-schedule>|<get-schedule>(){}[0]
+    final val strategy // io.github.lexmerciful.connectivity.config/DesktopConfig.strategy|{}strategy[0]
+        final fun <get-strategy>(): io.github.lexmerciful.connectivity.config/ProbeStrategy // io.github.lexmerciful.connectivity.config/DesktopConfig.strategy.<get-strategy>|<get-strategy>(){}[0]
+    final val tcp // io.github.lexmerciful.connectivity.config/DesktopConfig.tcp|{}tcp[0]
+        final fun <get-tcp>(): io.github.lexmerciful.connectivity.config/TcpProbeConfig // io.github.lexmerciful.connectivity.config/DesktopConfig.tcp.<get-tcp>|<get-tcp>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder|null[0]
+        final var checkBound // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.checkBound|{}checkBound[0]
+            final fun <get-checkBound>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.checkBound.<get-checkBound>|<get-checkBound>(){}[0]
+            final fun <set-checkBound>(kotlin.time/Duration) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.checkBound.<set-checkBound>|<set-checkBound>(kotlin.time.Duration){}[0]
+        final var confirmOfflineAfter // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.confirmOfflineAfter|{}confirmOfflineAfter[0]
+            final fun <get-confirmOfflineAfter>(): kotlin/Int // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.confirmOfflineAfter.<get-confirmOfflineAfter>|<get-confirmOfflineAfter>(){}[0]
+            final fun <set-confirmOfflineAfter>(kotlin/Int) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.confirmOfflineAfter.<set-confirmOfflineAfter>|<set-confirmOfflineAfter>(kotlin.Int){}[0]
+        final var interfaceFilter // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfaceFilter|{}interfaceFilter[0]
+            final fun <get-interfaceFilter>(): io.github.lexmerciful.connectivity.config/InterfaceFilter // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfaceFilter.<get-interfaceFilter>|<get-interfaceFilter>(){}[0]
+            final fun <set-interfaceFilter>(io.github.lexmerciful.connectivity.config/InterfaceFilter) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfaceFilter.<set-interfaceFilter>|<set-interfaceFilter>(io.github.lexmerciful.connectivity.config.InterfaceFilter){}[0]
+        final var interfacePreCheck // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfacePreCheck|{}interfacePreCheck[0]
+            final fun <get-interfacePreCheck>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfacePreCheck.<get-interfacePreCheck>|<get-interfacePreCheck>(){}[0]
+            final fun <set-interfacePreCheck>(kotlin/Boolean) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.interfacePreCheck.<set-interfacePreCheck>|<set-interfacePreCheck>(kotlin.Boolean){}[0]
+        final var schedule // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.schedule|{}schedule[0]
+            final fun <get-schedule>(): io.github.lexmerciful.connectivity.config/Schedule // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.schedule.<get-schedule>|<get-schedule>(){}[0]
+            final fun <set-schedule>(io.github.lexmerciful.connectivity.config/Schedule) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.schedule.<set-schedule>|<set-schedule>(io.github.lexmerciful.connectivity.config.Schedule){}[0]
+        final var strategy // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.strategy|{}strategy[0]
+            final fun <get-strategy>(): io.github.lexmerciful.connectivity.config/ProbeStrategy // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.strategy.<get-strategy>|<get-strategy>(){}[0]
+            final fun <set-strategy>(io.github.lexmerciful.connectivity.config/ProbeStrategy) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.strategy.<set-strategy>|<set-strategy>(io.github.lexmerciful.connectivity.config.ProbeStrategy){}[0]
+
+        final fun dns(kotlin/Function1<io.github.lexmerciful.connectivity.config/DnsProbeConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.dns|dns(kotlin.Function1<io.github.lexmerciful.connectivity.config.DnsProbeConfig.Builder,kotlin.Unit>){}[0]
+        final fun http(kotlin/Function1<io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.http|http(kotlin.Function1<io.github.lexmerciful.connectivity.config.HttpProbeConfig.Builder,kotlin.Unit>){}[0]
+        final fun tcp(kotlin/Function1<io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity.config/DesktopConfig.Builder.tcp|tcp(kotlin.Function1<io.github.lexmerciful.connectivity.config.TcpProbeConfig.Builder,kotlin.Unit>){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/DnsProbeConfig { // io.github.lexmerciful.connectivity.config/DnsProbeConfig|null[0]
+    final val hostname // io.github.lexmerciful.connectivity.config/DnsProbeConfig.hostname|{}hostname[0]
+        final fun <get-hostname>(): kotlin/String? // io.github.lexmerciful.connectivity.config/DnsProbeConfig.hostname.<get-hostname>|<get-hostname>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/DnsProbeConfig.Builder|null[0]
+        final var hostname // io.github.lexmerciful.connectivity.config/DnsProbeConfig.Builder.hostname|{}hostname[0]
+            final fun <get-hostname>(): kotlin/String? // io.github.lexmerciful.connectivity.config/DnsProbeConfig.Builder.hostname.<get-hostname>|<get-hostname>(){}[0]
+            final fun <set-hostname>(kotlin/String?) // io.github.lexmerciful.connectivity.config/DnsProbeConfig.Builder.hostname.<set-hostname>|<set-hostname>(kotlin.String?){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/HostPort { // io.github.lexmerciful.connectivity.config/HostPort|null[0]
+    constructor <init>(kotlin/String, kotlin/Int = ...) // io.github.lexmerciful.connectivity.config/HostPort.<init>|<init>(kotlin.String;kotlin.Int){}[0]
+
+    final val host // io.github.lexmerciful.connectivity.config/HostPort.host|{}host[0]
+        final fun <get-host>(): kotlin/String // io.github.lexmerciful.connectivity.config/HostPort.host.<get-host>|<get-host>(){}[0]
+    final val port // io.github.lexmerciful.connectivity.config/HostPort.port|{}port[0]
+        final fun <get-port>(): kotlin/Int // io.github.lexmerciful.connectivity.config/HostPort.port.<get-port>|<get-port>(){}[0]
+
+    final fun component1(): kotlin/String // io.github.lexmerciful.connectivity.config/HostPort.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // io.github.lexmerciful.connectivity.config/HostPort.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ...): io.github.lexmerciful.connectivity.config/HostPort // io.github.lexmerciful.connectivity.config/HostPort.copy|copy(kotlin.String;kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.lexmerciful.connectivity.config/HostPort.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.lexmerciful.connectivity.config/HostPort.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/HostPort.toString|toString(){}[0]
+}
+
+final class io.github.lexmerciful.connectivity.config/HttpProbeConfig { // io.github.lexmerciful.connectivity.config/HttpProbeConfig|null[0]
+    final val expectedStatus // io.github.lexmerciful.connectivity.config/HttpProbeConfig.expectedStatus|{}expectedStatus[0]
+        final fun <get-expectedStatus>(): kotlin.ranges/IntRange // io.github.lexmerciful.connectivity.config/HttpProbeConfig.expectedStatus.<get-expectedStatus>|<get-expectedStatus>(){}[0]
+    final val headers // io.github.lexmerciful.connectivity.config/HttpProbeConfig.headers|{}headers[0]
+        final fun <get-headers>(): kotlin.collections/Map<kotlin/String, kotlin/String> // io.github.lexmerciful.connectivity.config/HttpProbeConfig.headers.<get-headers>|<get-headers>(){}[0]
+    final val method // io.github.lexmerciful.connectivity.config/HttpProbeConfig.method|{}method[0]
+        final fun <get-method>(): kotlin/String // io.github.lexmerciful.connectivity.config/HttpProbeConfig.method.<get-method>|<get-method>(){}[0]
+    final val timeout // io.github.lexmerciful.connectivity.config/HttpProbeConfig.timeout|{}timeout[0]
+        final fun <get-timeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/HttpProbeConfig.timeout.<get-timeout>|<get-timeout>(){}[0]
+    final val url // io.github.lexmerciful.connectivity.config/HttpProbeConfig.url|{}url[0]
+        final fun <get-url>(): kotlin/String? // io.github.lexmerciful.connectivity.config/HttpProbeConfig.url.<get-url>|<get-url>(){}[0]
+    final val useSystemProxy // io.github.lexmerciful.connectivity.config/HttpProbeConfig.useSystemProxy|{}useSystemProxy[0]
+        final fun <get-useSystemProxy>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/HttpProbeConfig.useSystemProxy.<get-useSystemProxy>|<get-useSystemProxy>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder|null[0]
+        final var expectedStatus // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.expectedStatus|{}expectedStatus[0]
+            final fun <get-expectedStatus>(): kotlin.ranges/IntRange // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.expectedStatus.<get-expectedStatus>|<get-expectedStatus>(){}[0]
+            final fun <set-expectedStatus>(kotlin.ranges/IntRange) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.expectedStatus.<set-expectedStatus>|<set-expectedStatus>(kotlin.ranges.IntRange){}[0]
+        final var headers // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.headers|{}headers[0]
+            final fun <get-headers>(): kotlin.collections/Map<kotlin/String, kotlin/String> // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.headers.<get-headers>|<get-headers>(){}[0]
+            final fun <set-headers>(kotlin.collections/Map<kotlin/String, kotlin/String>) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.headers.<set-headers>|<set-headers>(kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+        final var method // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.method|{}method[0]
+            final fun <get-method>(): kotlin/String // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.method.<get-method>|<get-method>(){}[0]
+            final fun <set-method>(kotlin/String) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.method.<set-method>|<set-method>(kotlin.String){}[0]
+        final var timeout // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.timeout|{}timeout[0]
+            final fun <get-timeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.timeout.<get-timeout>|<get-timeout>(){}[0]
+            final fun <set-timeout>(kotlin.time/Duration) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.timeout.<set-timeout>|<set-timeout>(kotlin.time.Duration){}[0]
+        final var url // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.url|{}url[0]
+            final fun <get-url>(): kotlin/String? // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.url.<get-url>|<get-url>(){}[0]
+            final fun <set-url>(kotlin/String?) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.url.<set-url>|<set-url>(kotlin.String?){}[0]
+        final var useSystemProxy // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.useSystemProxy|{}useSystemProxy[0]
+            final fun <get-useSystemProxy>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.useSystemProxy.<get-useSystemProxy>|<get-useSystemProxy>(){}[0]
+            final fun <set-useSystemProxy>(kotlin/Boolean) // io.github.lexmerciful.connectivity.config/HttpProbeConfig.Builder.useSystemProxy.<set-useSystemProxy>|<set-useSystemProxy>(kotlin.Boolean){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/InterfaceInfo { // io.github.lexmerciful.connectivity.config/InterfaceInfo|null[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean) // io.github.lexmerciful.connectivity.config/InterfaceInfo.<init>|<init>(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final val displayName // io.github.lexmerciful.connectivity.config/InterfaceInfo.displayName|{}displayName[0]
+        final fun <get-displayName>(): kotlin/String // io.github.lexmerciful.connectivity.config/InterfaceInfo.displayName.<get-displayName>|<get-displayName>(){}[0]
+    final val hasRoutableAddress // io.github.lexmerciful.connectivity.config/InterfaceInfo.hasRoutableAddress|{}hasRoutableAddress[0]
+        final fun <get-hasRoutableAddress>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/InterfaceInfo.hasRoutableAddress.<get-hasRoutableAddress>|<get-hasRoutableAddress>(){}[0]
+    final val isLoopback // io.github.lexmerciful.connectivity.config/InterfaceInfo.isLoopback|{}isLoopback[0]
+        final fun <get-isLoopback>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/InterfaceInfo.isLoopback.<get-isLoopback>|<get-isLoopback>(){}[0]
+    final val isUp // io.github.lexmerciful.connectivity.config/InterfaceInfo.isUp|{}isUp[0]
+        final fun <get-isUp>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/InterfaceInfo.isUp.<get-isUp>|<get-isUp>(){}[0]
+    final val isVirtual // io.github.lexmerciful.connectivity.config/InterfaceInfo.isVirtual|{}isVirtual[0]
+        final fun <get-isVirtual>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/InterfaceInfo.isVirtual.<get-isVirtual>|<get-isVirtual>(){}[0]
+    final val name // io.github.lexmerciful.connectivity.config/InterfaceInfo.name|{}name[0]
+        final fun <get-name>(): kotlin/String // io.github.lexmerciful.connectivity.config/InterfaceInfo.name.<get-name>|<get-name>(){}[0]
+
+    final fun toString(): kotlin/String // io.github.lexmerciful.connectivity.config/InterfaceInfo.toString|toString(){}[0]
+}
+
+final class io.github.lexmerciful.connectivity.config/TcpProbeConfig { // io.github.lexmerciful.connectivity.config/TcpProbeConfig|null[0]
+    final val connectTimeout // io.github.lexmerciful.connectivity.config/TcpProbeConfig.connectTimeout|{}connectTimeout[0]
+        final fun <get-connectTimeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/TcpProbeConfig.connectTimeout.<get-connectTimeout>|<get-connectTimeout>(){}[0]
+    final val order // io.github.lexmerciful.connectivity.config/TcpProbeConfig.order|{}order[0]
+        final fun <get-order>(): io.github.lexmerciful.connectivity.config/ProbeOrder // io.github.lexmerciful.connectivity.config/TcpProbeConfig.order.<get-order>|<get-order>(){}[0]
+    final val targets // io.github.lexmerciful.connectivity.config/TcpProbeConfig.targets|{}targets[0]
+        final fun <get-targets>(): kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort> // io.github.lexmerciful.connectivity.config/TcpProbeConfig.targets.<get-targets>|<get-targets>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder|null[0]
+        final var connectTimeout // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.connectTimeout|{}connectTimeout[0]
+            final fun <get-connectTimeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.connectTimeout.<get-connectTimeout>|<get-connectTimeout>(){}[0]
+            final fun <set-connectTimeout>(kotlin.time/Duration) // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.connectTimeout.<set-connectTimeout>|<set-connectTimeout>(kotlin.time.Duration){}[0]
+        final var order // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.order|{}order[0]
+            final fun <get-order>(): io.github.lexmerciful.connectivity.config/ProbeOrder // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.order.<get-order>|<get-order>(){}[0]
+            final fun <set-order>(io.github.lexmerciful.connectivity.config/ProbeOrder) // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.order.<set-order>|<set-order>(io.github.lexmerciful.connectivity.config.ProbeOrder){}[0]
+        final var targets // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.targets|{}targets[0]
+            final fun <get-targets>(): kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort> // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.targets.<get-targets>|<get-targets>(){}[0]
+            final fun <set-targets>(kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort>) // io.github.lexmerciful.connectivity.config/TcpProbeConfig.Builder.targets.<set-targets>|<set-targets>(kotlin.collections.List<io.github.lexmerciful.connectivity.config.HostPort>){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/WebConfig { // io.github.lexmerciful.connectivity.config/WebConfig|null[0]
+    final val probe // io.github.lexmerciful.connectivity.config/WebConfig.probe|{}probe[0]
+        final fun <get-probe>(): io.github.lexmerciful.connectivity.config/WebProbeConfig // io.github.lexmerciful.connectivity.config/WebConfig.probe.<get-probe>|<get-probe>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/WebConfig.Builder|null[0]
+        final fun probe(kotlin/Function1<io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity.config/WebConfig.Builder.probe|probe(kotlin.Function1<io.github.lexmerciful.connectivity.config.WebProbeConfig.Builder,kotlin.Unit>){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity.config/WebProbeConfig { // io.github.lexmerciful.connectivity.config/WebProbeConfig|null[0]
+    final val confirmOfflineAfter // io.github.lexmerciful.connectivity.config/WebProbeConfig.confirmOfflineAfter|{}confirmOfflineAfter[0]
+        final fun <get-confirmOfflineAfter>(): kotlin/Int // io.github.lexmerciful.connectivity.config/WebProbeConfig.confirmOfflineAfter.<get-confirmOfflineAfter>|<get-confirmOfflineAfter>(){}[0]
+    final val enabled // io.github.lexmerciful.connectivity.config/WebProbeConfig.enabled|{}enabled[0]
+        final fun <get-enabled>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.enabled.<get-enabled>|<get-enabled>(){}[0]
+    final val method // io.github.lexmerciful.connectivity.config/WebProbeConfig.method|{}method[0]
+        final fun <get-method>(): kotlin/String // io.github.lexmerciful.connectivity.config/WebProbeConfig.method.<get-method>|<get-method>(){}[0]
+    final val mode // io.github.lexmerciful.connectivity.config/WebProbeConfig.mode|{}mode[0]
+        final fun <get-mode>(): io.github.lexmerciful.connectivity.config/FetchMode // io.github.lexmerciful.connectivity.config/WebProbeConfig.mode.<get-mode>|<get-mode>(){}[0]
+    final val onlyWhenNavigatorOnline // io.github.lexmerciful.connectivity.config/WebProbeConfig.onlyWhenNavigatorOnline|{}onlyWhenNavigatorOnline[0]
+        final fun <get-onlyWhenNavigatorOnline>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.onlyWhenNavigatorOnline.<get-onlyWhenNavigatorOnline>|<get-onlyWhenNavigatorOnline>(){}[0]
+    final val pauseWhenHidden // io.github.lexmerciful.connectivity.config/WebProbeConfig.pauseWhenHidden|{}pauseWhenHidden[0]
+        final fun <get-pauseWhenHidden>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.pauseWhenHidden.<get-pauseWhenHidden>|<get-pauseWhenHidden>(){}[0]
+    final val schedule // io.github.lexmerciful.connectivity.config/WebProbeConfig.schedule|{}schedule[0]
+        final fun <get-schedule>(): io.github.lexmerciful.connectivity.config/Schedule // io.github.lexmerciful.connectivity.config/WebProbeConfig.schedule.<get-schedule>|<get-schedule>(){}[0]
+    final val timeout // io.github.lexmerciful.connectivity.config/WebProbeConfig.timeout|{}timeout[0]
+        final fun <get-timeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/WebProbeConfig.timeout.<get-timeout>|<get-timeout>(){}[0]
+    final val url // io.github.lexmerciful.connectivity.config/WebProbeConfig.url|{}url[0]
+        final fun <get-url>(): kotlin/String? // io.github.lexmerciful.connectivity.config/WebProbeConfig.url.<get-url>|<get-url>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder|null[0]
+        final var confirmOfflineAfter // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.confirmOfflineAfter|{}confirmOfflineAfter[0]
+            final fun <get-confirmOfflineAfter>(): kotlin/Int // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.confirmOfflineAfter.<get-confirmOfflineAfter>|<get-confirmOfflineAfter>(){}[0]
+            final fun <set-confirmOfflineAfter>(kotlin/Int) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.confirmOfflineAfter.<set-confirmOfflineAfter>|<set-confirmOfflineAfter>(kotlin.Int){}[0]
+        final var enabled // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.enabled|{}enabled[0]
+            final fun <get-enabled>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.enabled.<get-enabled>|<get-enabled>(){}[0]
+            final fun <set-enabled>(kotlin/Boolean) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.enabled.<set-enabled>|<set-enabled>(kotlin.Boolean){}[0]
+        final var method // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.method|{}method[0]
+            final fun <get-method>(): kotlin/String // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.method.<get-method>|<get-method>(){}[0]
+            final fun <set-method>(kotlin/String) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.method.<set-method>|<set-method>(kotlin.String){}[0]
+        final var mode // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.mode|{}mode[0]
+            final fun <get-mode>(): io.github.lexmerciful.connectivity.config/FetchMode // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.mode.<get-mode>|<get-mode>(){}[0]
+            final fun <set-mode>(io.github.lexmerciful.connectivity.config/FetchMode) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.mode.<set-mode>|<set-mode>(io.github.lexmerciful.connectivity.config.FetchMode){}[0]
+        final var onlyWhenNavigatorOnline // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.onlyWhenNavigatorOnline|{}onlyWhenNavigatorOnline[0]
+            final fun <get-onlyWhenNavigatorOnline>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.onlyWhenNavigatorOnline.<get-onlyWhenNavigatorOnline>|<get-onlyWhenNavigatorOnline>(){}[0]
+            final fun <set-onlyWhenNavigatorOnline>(kotlin/Boolean) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.onlyWhenNavigatorOnline.<set-onlyWhenNavigatorOnline>|<set-onlyWhenNavigatorOnline>(kotlin.Boolean){}[0]
+        final var pauseWhenHidden // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.pauseWhenHidden|{}pauseWhenHidden[0]
+            final fun <get-pauseWhenHidden>(): kotlin/Boolean // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.pauseWhenHidden.<get-pauseWhenHidden>|<get-pauseWhenHidden>(){}[0]
+            final fun <set-pauseWhenHidden>(kotlin/Boolean) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.pauseWhenHidden.<set-pauseWhenHidden>|<set-pauseWhenHidden>(kotlin.Boolean){}[0]
+        final var schedule // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.schedule|{}schedule[0]
+            final fun <get-schedule>(): io.github.lexmerciful.connectivity.config/Schedule // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.schedule.<get-schedule>|<get-schedule>(){}[0]
+            final fun <set-schedule>(io.github.lexmerciful.connectivity.config/Schedule) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.schedule.<set-schedule>|<set-schedule>(io.github.lexmerciful.connectivity.config.Schedule){}[0]
+        final var timeout // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.timeout|{}timeout[0]
+            final fun <get-timeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.timeout.<get-timeout>|<get-timeout>(){}[0]
+            final fun <set-timeout>(kotlin.time/Duration) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.timeout.<set-timeout>|<set-timeout>(kotlin.time.Duration){}[0]
+        final var url // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.url|{}url[0]
+            final fun <get-url>(): kotlin/String? // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.url.<get-url>|<get-url>(){}[0]
+            final fun <set-url>(kotlin/String?) // io.github.lexmerciful.connectivity.config/WebProbeConfig.Builder.url.<set-url>|<set-url>(kotlin.String?){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity/ConnectivityConfig { // io.github.lexmerciful.connectivity/ConnectivityConfig|null[0]
+    final val debounce // io.github.lexmerciful.connectivity/ConnectivityConfig.debounce|{}debounce[0]
+        final fun <get-debounce>(): io.github.lexmerciful.connectivity/DebounceConfig // io.github.lexmerciful.connectivity/ConnectivityConfig.debounce.<get-debounce>|<get-debounce>(){}[0]
+    final val desktop // io.github.lexmerciful.connectivity/ConnectivityConfig.desktop|{}desktop[0]
+        final fun <get-desktop>(): io.github.lexmerciful.connectivity.config/DesktopConfig // io.github.lexmerciful.connectivity/ConnectivityConfig.desktop.<get-desktop>|<get-desktop>(){}[0]
+    final val hints // io.github.lexmerciful.connectivity/ConnectivityConfig.hints|{}hints[0]
+        final fun <get-hints>(): io.github.lexmerciful.connectivity/HintConfig // io.github.lexmerciful.connectivity/ConnectivityConfig.hints.<get-hints>|<get-hints>(){}[0]
+    final val initialState // io.github.lexmerciful.connectivity/ConnectivityConfig.initialState|{}initialState[0]
+        final fun <get-initialState>(): io.github.lexmerciful.connectivity/InitialState // io.github.lexmerciful.connectivity/ConnectivityConfig.initialState.<get-initialState>|<get-initialState>(){}[0]
+    final val ios // io.github.lexmerciful.connectivity/ConnectivityConfig.ios|{}ios[0]
+        final fun <get-ios>(): io.github.lexmerciful.connectivity/IosConfig // io.github.lexmerciful.connectivity/ConnectivityConfig.ios.<get-ios>|<get-ios>(){}[0]
+    final val logger // io.github.lexmerciful.connectivity/ConnectivityConfig.logger|{}logger[0]
+        final fun <get-logger>(): io.github.lexmerciful.connectivity/ConnectivityLogger // io.github.lexmerciful.connectivity/ConnectivityConfig.logger.<get-logger>|<get-logger>(){}[0]
+    final val onMonitorFailure // io.github.lexmerciful.connectivity/ConnectivityConfig.onMonitorFailure|{}onMonitorFailure[0]
+        final fun <get-onMonitorFailure>(): io.github.lexmerciful.connectivity/FailurePolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.onMonitorFailure.<get-onMonitorFailure>|<get-onMonitorFailure>(){}[0]
+    final val reconnectedPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.reconnectedPolicy|{}reconnectedPolicy[0]
+        final fun <get-reconnectedPolicy>(): io.github.lexmerciful.connectivity/ReconnectedPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.reconnectedPolicy.<get-reconnectedPolicy>|<get-reconnectedPolicy>(){}[0]
+    final val scope // io.github.lexmerciful.connectivity/ConnectivityConfig.scope|{}scope[0]
+        final fun <get-scope>(): kotlinx.coroutines/CoroutineScope? // io.github.lexmerciful.connectivity/ConnectivityConfig.scope.<get-scope>|<get-scope>(){}[0]
+    final val stopTimeout // io.github.lexmerciful.connectivity/ConnectivityConfig.stopTimeout|{}stopTimeout[0]
+        final fun <get-stopTimeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/ConnectivityConfig.stopTimeout.<get-stopTimeout>|<get-stopTimeout>(){}[0]
+    final val validation // io.github.lexmerciful.connectivity/ConnectivityConfig.validation|{}validation[0]
+        final fun <get-validation>(): io.github.lexmerciful.connectivity/ValidationPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.validation.<get-validation>|<get-validation>(){}[0]
+    final val web // io.github.lexmerciful.connectivity/ConnectivityConfig.web|{}web[0]
+        final fun <get-web>(): io.github.lexmerciful.connectivity.config/WebConfig // io.github.lexmerciful.connectivity/ConnectivityConfig.web.<get-web>|<get-web>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder|null[0]
+        final var initialState // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.initialState|{}initialState[0]
+            final fun <get-initialState>(): io.github.lexmerciful.connectivity/InitialState // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.initialState.<get-initialState>|<get-initialState>(){}[0]
+            final fun <set-initialState>(io.github.lexmerciful.connectivity/InitialState) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.initialState.<set-initialState>|<set-initialState>(io.github.lexmerciful.connectivity.InitialState){}[0]
+        final var logger // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.logger|{}logger[0]
+            final fun <get-logger>(): io.github.lexmerciful.connectivity/ConnectivityLogger // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.logger.<get-logger>|<get-logger>(){}[0]
+            final fun <set-logger>(io.github.lexmerciful.connectivity/ConnectivityLogger) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.logger.<set-logger>|<set-logger>(io.github.lexmerciful.connectivity.ConnectivityLogger){}[0]
+        final var onMonitorFailure // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.onMonitorFailure|{}onMonitorFailure[0]
+            final fun <get-onMonitorFailure>(): io.github.lexmerciful.connectivity/FailurePolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.onMonitorFailure.<get-onMonitorFailure>|<get-onMonitorFailure>(){}[0]
+            final fun <set-onMonitorFailure>(io.github.lexmerciful.connectivity/FailurePolicy) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.onMonitorFailure.<set-onMonitorFailure>|<set-onMonitorFailure>(io.github.lexmerciful.connectivity.FailurePolicy){}[0]
+        final var reconnectedPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.reconnectedPolicy|{}reconnectedPolicy[0]
+            final fun <get-reconnectedPolicy>(): io.github.lexmerciful.connectivity/ReconnectedPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.reconnectedPolicy.<get-reconnectedPolicy>|<get-reconnectedPolicy>(){}[0]
+            final fun <set-reconnectedPolicy>(io.github.lexmerciful.connectivity/ReconnectedPolicy) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.reconnectedPolicy.<set-reconnectedPolicy>|<set-reconnectedPolicy>(io.github.lexmerciful.connectivity.ReconnectedPolicy){}[0]
+        final var scope // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.scope|{}scope[0]
+            final fun <get-scope>(): kotlinx.coroutines/CoroutineScope? // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.scope.<get-scope>|<get-scope>(){}[0]
+            final fun <set-scope>(kotlinx.coroutines/CoroutineScope?) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.scope.<set-scope>|<set-scope>(kotlinx.coroutines.CoroutineScope?){}[0]
+        final var stopTimeout // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.stopTimeout|{}stopTimeout[0]
+            final fun <get-stopTimeout>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.stopTimeout.<get-stopTimeout>|<get-stopTimeout>(){}[0]
+            final fun <set-stopTimeout>(kotlin.time/Duration) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.stopTimeout.<set-stopTimeout>|<set-stopTimeout>(kotlin.time.Duration){}[0]
+        final var validation // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.validation|{}validation[0]
+            final fun <get-validation>(): io.github.lexmerciful.connectivity/ValidationPolicy // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.validation.<get-validation>|<get-validation>(){}[0]
+            final fun <set-validation>(io.github.lexmerciful.connectivity/ValidationPolicy) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.validation.<set-validation>|<set-validation>(io.github.lexmerciful.connectivity.ValidationPolicy){}[0]
+
+        final fun debounce(kotlin/Function1<io.github.lexmerciful.connectivity/DebounceConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.debounce|debounce(kotlin.Function1<io.github.lexmerciful.connectivity.DebounceConfig.Builder,kotlin.Unit>){}[0]
+        final fun desktop(kotlin/Function1<io.github.lexmerciful.connectivity.config/DesktopConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.desktop|desktop(kotlin.Function1<io.github.lexmerciful.connectivity.config.DesktopConfig.Builder,kotlin.Unit>){}[0]
+        final fun hints(kotlin/Function1<io.github.lexmerciful.connectivity/HintConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.hints|hints(kotlin.Function1<io.github.lexmerciful.connectivity.HintConfig.Builder,kotlin.Unit>){}[0]
+        final fun ios(kotlin/Function1<io.github.lexmerciful.connectivity/IosConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.ios|ios(kotlin.Function1<io.github.lexmerciful.connectivity.IosConfig.Builder,kotlin.Unit>){}[0]
+        final fun web(kotlin/Function1<io.github.lexmerciful.connectivity.config/WebConfig.Builder, kotlin/Unit>) // io.github.lexmerciful.connectivity/ConnectivityConfig.Builder.web|web(kotlin.Function1<io.github.lexmerciful.connectivity.config.WebConfig.Builder,kotlin.Unit>){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity/DebounceConfig { // io.github.lexmerciful.connectivity/DebounceConfig|null[0]
+    final val offline // io.github.lexmerciful.connectivity/DebounceConfig.offline|{}offline[0]
+        final fun <get-offline>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/DebounceConfig.offline.<get-offline>|<get-offline>(){}[0]
+    final val online // io.github.lexmerciful.connectivity/DebounceConfig.online|{}online[0]
+        final fun <get-online>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/DebounceConfig.online.<get-online>|<get-online>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity/DebounceConfig.Builder|null[0]
+        final var offline // io.github.lexmerciful.connectivity/DebounceConfig.Builder.offline|{}offline[0]
+            final fun <get-offline>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/DebounceConfig.Builder.offline.<get-offline>|<get-offline>(){}[0]
+            final fun <set-offline>(kotlin.time/Duration) // io.github.lexmerciful.connectivity/DebounceConfig.Builder.offline.<set-offline>|<set-offline>(kotlin.time.Duration){}[0]
+        final var online // io.github.lexmerciful.connectivity/DebounceConfig.Builder.online|{}online[0]
+            final fun <get-online>(): kotlin.time/Duration // io.github.lexmerciful.connectivity/DebounceConfig.Builder.online.<get-online>|<get-online>(){}[0]
+            final fun <set-online>(kotlin.time/Duration) // io.github.lexmerciful.connectivity/DebounceConfig.Builder.online.<set-online>|<set-online>(kotlin.time.Duration){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity/HintConfig { // io.github.lexmerciful.connectivity/HintConfig|null[0]
+    final val applyOnNativePlatforms // io.github.lexmerciful.connectivity/HintConfig.applyOnNativePlatforms|{}applyOnNativePlatforms[0]
+        final fun <get-applyOnNativePlatforms>(): kotlin/Boolean // io.github.lexmerciful.connectivity/HintConfig.applyOnNativePlatforms.<get-applyOnNativePlatforms>|<get-applyOnNativePlatforms>(){}[0]
+    final val onRequestFailure // io.github.lexmerciful.connectivity/HintConfig.onRequestFailure|{}onRequestFailure[0]
+        final fun <get-onRequestFailure>(): io.github.lexmerciful.connectivity/RequestFailurePolicy // io.github.lexmerciful.connectivity/HintConfig.onRequestFailure.<get-onRequestFailure>|<get-onRequestFailure>(){}[0]
+    final val onResponse // io.github.lexmerciful.connectivity/HintConfig.onResponse|{}onResponse[0]
+        final fun <get-onResponse>(): io.github.lexmerciful.connectivity/ResponsePolicy // io.github.lexmerciful.connectivity/HintConfig.onResponse.<get-onResponse>|<get-onResponse>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity/HintConfig.Builder|null[0]
+        final var applyOnNativePlatforms // io.github.lexmerciful.connectivity/HintConfig.Builder.applyOnNativePlatforms|{}applyOnNativePlatforms[0]
+            final fun <get-applyOnNativePlatforms>(): kotlin/Boolean // io.github.lexmerciful.connectivity/HintConfig.Builder.applyOnNativePlatforms.<get-applyOnNativePlatforms>|<get-applyOnNativePlatforms>(){}[0]
+            final fun <set-applyOnNativePlatforms>(kotlin/Boolean) // io.github.lexmerciful.connectivity/HintConfig.Builder.applyOnNativePlatforms.<set-applyOnNativePlatforms>|<set-applyOnNativePlatforms>(kotlin.Boolean){}[0]
+        final var onRequestFailure // io.github.lexmerciful.connectivity/HintConfig.Builder.onRequestFailure|{}onRequestFailure[0]
+            final fun <get-onRequestFailure>(): io.github.lexmerciful.connectivity/RequestFailurePolicy // io.github.lexmerciful.connectivity/HintConfig.Builder.onRequestFailure.<get-onRequestFailure>|<get-onRequestFailure>(){}[0]
+            final fun <set-onRequestFailure>(io.github.lexmerciful.connectivity/RequestFailurePolicy) // io.github.lexmerciful.connectivity/HintConfig.Builder.onRequestFailure.<set-onRequestFailure>|<set-onRequestFailure>(io.github.lexmerciful.connectivity.RequestFailurePolicy){}[0]
+        final var onResponse // io.github.lexmerciful.connectivity/HintConfig.Builder.onResponse|{}onResponse[0]
+            final fun <get-onResponse>(): io.github.lexmerciful.connectivity/ResponsePolicy // io.github.lexmerciful.connectivity/HintConfig.Builder.onResponse.<get-onResponse>|<get-onResponse>(){}[0]
+            final fun <set-onResponse>(io.github.lexmerciful.connectivity/ResponsePolicy) // io.github.lexmerciful.connectivity/HintConfig.Builder.onResponse.<set-onResponse>|<set-onResponse>(io.github.lexmerciful.connectivity.ResponsePolicy){}[0]
+    }
+}
+
+final class io.github.lexmerciful.connectivity/IosConfig { // io.github.lexmerciful.connectivity/IosConfig|null[0]
+    final val useMainQueue // io.github.lexmerciful.connectivity/IosConfig.useMainQueue|{}useMainQueue[0]
+        final fun <get-useMainQueue>(): kotlin/Boolean // io.github.lexmerciful.connectivity/IosConfig.useMainQueue.<get-useMainQueue>|<get-useMainQueue>(){}[0]
+
+    final class Builder { // io.github.lexmerciful.connectivity/IosConfig.Builder|null[0]
+        final var useMainQueue // io.github.lexmerciful.connectivity/IosConfig.Builder.useMainQueue|{}useMainQueue[0]
+            final fun <get-useMainQueue>(): kotlin/Boolean // io.github.lexmerciful.connectivity/IosConfig.Builder.useMainQueue.<get-useMainQueue>|<get-useMainQueue>(){}[0]
+            final fun <set-useMainQueue>(kotlin/Boolean) // io.github.lexmerciful.connectivity/IosConfig.Builder.useMainQueue.<set-useMainQueue>|<set-useMainQueue>(kotlin.Boolean){}[0]
+    }
+}
+
+final object io.github.lexmerciful.connectivity.config/ProbeTargets { // io.github.lexmerciful.connectivity.config/ProbeTargets|null[0]
+    final const val Generate204Url // io.github.lexmerciful.connectivity.config/ProbeTargets.Generate204Url|{}Generate204Url[0]
+        final fun <get-Generate204Url>(): kotlin/String // io.github.lexmerciful.connectivity.config/ProbeTargets.Generate204Url.<get-Generate204Url>|<get-Generate204Url>(){}[0]
+
+    final val PublicResolvers // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolvers|{}PublicResolvers[0]
+        final fun <get-PublicResolvers>(): kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort> // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolvers.<get-PublicResolvers>|<get-PublicResolvers>(){}[0]
+    final val PublicResolversV4 // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolversV4|{}PublicResolversV4[0]
+        final fun <get-PublicResolversV4>(): kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort> // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolversV4.<get-PublicResolversV4>|<get-PublicResolversV4>(){}[0]
+    final val PublicResolversV6 // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolversV6|{}PublicResolversV6[0]
+        final fun <get-PublicResolversV6>(): kotlin.collections/List<io.github.lexmerciful.connectivity.config/HostPort> // io.github.lexmerciful.connectivity.config/ProbeTargets.PublicResolversV6.<get-PublicResolversV6>|<get-PublicResolversV6>(){}[0]
+
+    final fun fromUrl(kotlin/String): io.github.lexmerciful.connectivity.config/HostPort // io.github.lexmerciful.connectivity.config/ProbeTargets.fromUrl|fromUrl(kotlin.String){}[0]
+}
+
+final val io.github.lexmerciful.connectivity/isConnected // io.github.lexmerciful.connectivity/isConnected|@io.github.lexmerciful.connectivity.ConnectivityStatus{}isConnected[0]
+    final fun (io.github.lexmerciful.connectivity/ConnectivityStatus).<get-isConnected>(): kotlin/Boolean // io.github.lexmerciful.connectivity/isConnected.<get-isConnected>|<get-isConnected>@io.github.lexmerciful.connectivity.ConnectivityStatus(){}[0]
+
+final fun (io.github.lexmerciful.connectivity/ConnectivityMonitor).io.github.lexmerciful.connectivity/observe(kotlin/Function1<kotlin/Boolean, kotlin/Unit>): kotlin/AutoCloseable // io.github.lexmerciful.connectivity/observe|observe@io.github.lexmerciful.connectivity.ConnectivityMonitor(kotlin.Function1<kotlin.Boolean,kotlin.Unit>){}[0]
+final fun (io.github.lexmerciful.connectivity/ConnectivityMonitor).io.github.lexmerciful.connectivity/observeReconnected(kotlin/Function0<kotlin/Unit>): kotlin/AutoCloseable // io.github.lexmerciful.connectivity/observeReconnected|observeReconnected@io.github.lexmerciful.connectivity.ConnectivityMonitor(kotlin.Function0<kotlin.Unit>){}[0]
+final fun (io.github.lexmerciful.connectivity/ConnectivityMonitor).io.github.lexmerciful.connectivity/observeStatus(kotlin/Function1<io.github.lexmerciful.connectivity/ConnectivityStatus, kotlin/Unit>): kotlin/AutoCloseable // io.github.lexmerciful.connectivity/observeStatus|observeStatus@io.github.lexmerciful.connectivity.ConnectivityMonitor(kotlin.Function1<io.github.lexmerciful.connectivity.ConnectivityStatus,kotlin.Unit>){}[0]
+final fun io.github.lexmerciful.connectivity/ConnectivityConfig(kotlin/Function1<io.github.lexmerciful.connectivity/ConnectivityConfig.Builder, kotlin/Unit> = ...): io.github.lexmerciful.connectivity/ConnectivityConfig // io.github.lexmerciful.connectivity/ConnectivityConfig|ConnectivityConfig(kotlin.Function1<io.github.lexmerciful.connectivity.ConnectivityConfig.Builder,kotlin.Unit>){}[0]
+final fun io.github.lexmerciful.connectivity/ConnectivityMonitor(io.github.lexmerciful.connectivity/ConnectivityConfig): io.github.lexmerciful.connectivity/ConnectivityMonitor // io.github.lexmerciful.connectivity/ConnectivityMonitor|ConnectivityMonitor(io.github.lexmerciful.connectivity.ConnectivityConfig){}[0]
+final fun io.github.lexmerciful.connectivity/ConnectivityMonitor(kotlin/Function1<io.github.lexmerciful.connectivity/ConnectivityConfig.Builder, kotlin/Unit> = ...): io.github.lexmerciful.connectivity/ConnectivityMonitor // io.github.lexmerciful.connectivity/ConnectivityMonitor|ConnectivityMonitor(kotlin.Function1<io.github.lexmerciful.connectivity.ConnectivityConfig.Builder,kotlin.Unit>){}[0]
