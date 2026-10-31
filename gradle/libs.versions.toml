@@ -3,6 +3,7 @@
 kotlin = "2.4.21"
 agp = "9.1.1"
 maven-publish = "0.37.0"
+dokka = "2.2.0"
 compose-multiplatform = "1.12.1"
 compose-material3 = "1.9.0"
 androidx-activityCompose = "1.13.0"
@@ -46,12 +47,14 @@ android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref 
 compose-gradlePlugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
 compose-compiler-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 maven-publish-gradlePlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "maven-publish" }
+dokka-gradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 
 [plugins]
 
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 android-kmp-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

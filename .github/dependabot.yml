@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: [ "*" ]
+
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # Kotlin, Compose and AGP move together; one PR keeps the build consistent.
+      kotlin-toolchain:
+        patterns:
+          - "org.jetbrains.kotlin*"
+          - "org.jetbrains.compose*"
+          - "com.android.tools.build*"
+          - "com.android.kotlin.multiplatform.library"
+          - "com.android.application"
+      libraries:
+        patterns: [ "*" ]

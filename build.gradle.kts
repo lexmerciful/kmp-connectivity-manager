@@ -6,4 +6,17 @@ plugins {
     alias(libs.plugins.compose.compiler).apply(false)
     alias(libs.plugins.kotlin.jvm).apply(false)
     alias(libs.plugins.android.application).apply(false)
+    alias(libs.plugins.dokka)
+}
+
+// API docs site for every published module: ./gradlew :dokkaGenerate → build/dokka/html
+dokka {
+    moduleName.set("KMP Connectivity")
+}
+
+dependencies {
+    dokka(project(":connectivity-core"))
+    dokka(project(":connectivity-compose"))
+    dokka(project(":connectivity-ktor"))
+    dokka(project(":connectivity-okhttp"))
 }

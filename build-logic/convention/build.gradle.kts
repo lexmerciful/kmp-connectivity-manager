@@ -10,6 +10,7 @@ dependencies {
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.compose.compiler.gradlePlugin)
     compileOnly(libs.maven.publish.gradlePlugin)
+    compileOnly(libs.dokka.gradlePlugin)
 }
 
 gradlePlugin {

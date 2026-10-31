@@ -1,0 +1,12 @@
+# Normalise line endings in the repository; shell scripts must stay LF to run on macOS/Linux CI.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+gradlew text eol=lf
+*.sh text eol=lf
+
+*.jar binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.webp binary

@@ -1,6 +1,53 @@
 # KMP Connectivity
 
-A Kotlin Multiplatform library that tells your app whether the device can reach the internet, and optionally shows a "No internet connection" strip in Compose. Android, iOS, Desktop (JVM), Web (JS + Wasm).
+**Internet connectivity monitor for Kotlin Multiplatform**: know whether the device can actually reach the internet on Android, iOS, Desktop (JVM) and Web (JS + Wasm), as a `StateFlow<Boolean>`, and show a "No internet connection" banner in Jetpack Compose or Compose Multiplatform with one line.
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.lexmerciful/connectivity-core?label=Maven%20Central)](https://central.sonatype.com/namespace/io.github.lexmerciful)
+[![CI](https://github.com/lexmerciful/kmp-connectivity-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/lexmerciful/kmp-connectivity-manager/actions/workflows/ci.yml)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.12-4285F4)](https://www.jetbrains.com/compose-multiplatform/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
+![Android](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
+![iOS](https://img.shields.io/badge/platform-iOS-000000?logo=apple&logoColor=white)
+![Desktop](https://img.shields.io/badge/platform-Desktop%20JVM-E76F00?logo=openjdk&logoColor=white)
+![Web](https://img.shields.io/badge/platform-JS%20%7C%20Wasm-F7DF1E?logo=webassembly&logoColor=black)
+
+**[API reference](https://lexmerciful.github.io/kmp-connectivity-manager/)** · **[Changelog](CHANGELOG.md)** · **[Sample app](sample/)**
+
+```kotlin
+val monitor = ConnectivityMonitor(context)           // ConnectivityMonitor() on iOS and Web
+
+monitor.isConnected.collect { online -> /* ... */ }  // StateFlow<Boolean>
+
+ConnectivityStripLayout(monitor) { AppNavHost() }    // "No internet connection" strip, edge-to-edge aware
+```
+
+## Why
+
+Checking "is there a network?" is easy; telling the user "you are offline" **without false alarms** is not. Wi-Fi → cellular handovers report a brief loss, captive portals report a network with no internet, desktop JVMs have no OS signal at all, and a monitor that fails on start should never lock the user out. This library uses each platform's own signal, adds the missing pieces (bounded probes on desktop, an optional probe on the web), and makes every default lean toward *online*.
+
+- **One API on every target**: `isConnected`, a richer `status` (Wi-Fi, cellular, Ethernet, VPN; metered; Low Data Mode; disconnect reason) and a `reconnected` event for auto-retry.
+- **Native signals**: Android `ConnectivityManager.NetworkCallback` (default network), iOS `NWPathMonitor`, browser `navigator.onLine`, desktop TCP / HTTP / DNS probes you choose.
+- **No false "offline"**: handover-safe, validation and failure policies, debounce, offline confirmation, wake-from-sleep detection.
+- **Compose UI included**: a "No internet connection" / "Back online" strip with insets handling, top or bottom, push or overlay, Material 3 defaults, fully customisable.
+- **Faster detection from your HTTP client**: optional Ktor plugin and OkHttp interceptor.
+- **Swift-friendly**: `monitor.observe { connected in ... }`, no coroutines needed.
+- **Lightweight and private**: monitoring runs only while collected and stops 5 s after the last collector; nothing is contacted unless you configure it.
+- **Built to be depended on**: explicit API mode, binary-compatibility (ABI) checks, and tests on every platform in CI.
+
+## Platforms
+
+| Platform | Signal | Modules |
+|---|---|---|
+| Android (minSdk 24) | `ConnectivityManager` default-network callback | core, compose, ktor, okhttp |
+| iOS (arm64, simulator arm64) | `NWPathMonitor` | core, compose, ktor |
+| Desktop JVM (Windows, macOS, Linux) | Network interfaces + bounded TCP / HTTP / DNS probe | core, compose, ktor, okhttp |
+| Web: Kotlin/JS and Kotlin/Wasm | `navigator.onLine` + `online`/`offline` events, optional fetch probe | core, compose, ktor |
+
+## Installation
+
+Available on Maven Central:
 
 | Artifact | What it gives you |
 |---|---|
@@ -10,12 +57,29 @@ A Kotlin Multiplatform library that tells your app whether the device can reach 
 | `connectivity-okhttp` | `ConnectivityHintsInterceptor` for OkHttp (Android / JVM). |
 
 ```kotlin
-dependencies {
-    implementation("io.github.lexmerciful:connectivity-core:<version>")
-    implementation("io.github.lexmerciful:connectivity-compose:<version>") // optional UI
-    implementation("io.github.lexmerciful:connectivity-ktor:<version>")    // optional
-}
+// build.gradle.kts: commonMain.dependencies { ... } in a KMP module, or dependencies { ... } in an Android module
+implementation("io.github.lexmerciful:connectivity-core:0.1.0")
+implementation("io.github.lexmerciful:connectivity-compose:0.1.0") // optional UI
+implementation("io.github.lexmerciful:connectivity-ktor:0.1.0")    // optional
 ```
+
+<details>
+<summary>Version catalog (<code>libs.versions.toml</code>)</summary>
+
+```toml
+[versions]
+connectivity = "0.1.0"
+
+[libraries]
+connectivity-core = { module = "io.github.lexmerciful:connectivity-core", version.ref = "connectivity" }
+connectivity-compose = { module = "io.github.lexmerciful:connectivity-compose", version.ref = "connectivity" }
+connectivity-ktor = { module = "io.github.lexmerciful:connectivity-ktor", version.ref = "connectivity" }
+connectivity-okhttp = { module = "io.github.lexmerciful:connectivity-okhttp", version.ref = "connectivity" }
+```
+
+</details>
+
+The Android `ACCESS_NETWORK_STATE` permission is merged from the library manifest; there is nothing to add.
 
 ## Quick start
 
@@ -227,14 +291,41 @@ For Clean Architecture, keep library types out of your domain: define `interface
 ```
 ./gradlew check                       # all tests (JVM, Android host, JS/Wasm in headless Chrome; iOS on macOS)
 ./gradlew checkKotlinAbi              # public API unchanged? (updateKotlinAbi after intended changes)
+./gradlew :dokkaGenerate              # API docs → build/dokka/html
 ./gradlew :sample:desktopApp:run      # desktop sample
 ./gradlew :sample:webApp:wasmJsBrowserDevelopmentRun
-./gradlew publishToMavenLocal
+./gradlew publishToMavenLocal -PVERSION_NAME=0.0.0-local && scripts/verify-publication.sh 0.0.0-local
 ```
 
 Android sample: open the project in Android Studio and run `sample:androidApp`. iOS sample: open `sample/iosApp/iosApp.xcodeproj` in Xcode.
 
-Publishing to Maven Central: tag `vX.Y.Z` (see `.github/workflows/publish.yml`). It needs the `MAVEN_CENTRAL_USERNAME`, `MAVEN_CENTRAL_PASSWORD`, `SIGNING_KEY` and `SIGNING_KEY_PASSWORD` secrets, and a verified `io.github.lexmerciful` namespace on central.sonatype.com.
+**CI** runs on every push and pull request: Linux (all tests, ABI check, samples, API docs), macOS (iOS simulator tests against the real `NWPathMonitor`, iOS compilation, and a full publication dry run checked by `scripts/verify-publication.sh`), and the desktop JVM tests on Windows and macOS.
+
+**Releasing:** add a `## [X.Y.Z]` section to [CHANGELOG.md](CHANGELOG.md), then push the tag `vX.Y.Z`. The release workflow runs the full CI, publishes to Maven Central, creates the GitHub Release from that changelog section and deploys the API docs. It needs the `MAVEN_CENTRAL_USERNAME`, `MAVEN_CENTRAL_PASSWORD`, `SIGNING_KEY` and `SIGNING_KEY_PASSWORD` secrets, and a verified `io.github.lexmerciful` namespace on central.sonatype.com.
+
+## FAQ
+
+**How do I check the internet connection in Kotlin Multiplatform?**
+Add `connectivity-core`, create one `ConnectivityMonitor` per process, and read `monitor.isConnected.value` or collect the `StateFlow`. The same code works in `commonMain` for Android, iOS, desktop and web.
+
+**How do I show a "No internet connection" banner in Compose Multiplatform or Jetpack Compose?**
+Wrap your root content in `ConnectivityStripLayout(monitor) { ... }` from `connectivity-compose`. No per-screen changes are needed.
+
+**Does "connected" mean the internet is actually reachable?**
+On Android it follows the system's validated-internet capability (see `ValidationPolicy`); on iOS, `NWPathMonitor`'s satisfied path; on desktop, a real probe to targets you choose; on the web, the browser's signal plus an optional probe of your own endpoint. Request outcomes from Ktor or OkHttp confirm it further.
+
+**Can I use it from Swift or SwiftUI?**
+Yes: `let handle = monitor.observe { connected in ... }`, then `handle.close()` to stop. No coroutine bridging library is needed.
+
+**How do I retry requests when the connection comes back?**
+Collect `monitor.reconnected`: it emits once per offline → online transition.
+
+**Does it send network traffic?**
+On Android, iOS and the web (by default), no. On desktop it probes only the targets you configure; see the privacy note above.
+
+## Contributing
+
+Issues and pull requests are welcome. Please run `./gradlew check checkKotlinAbi` before opening a pull request, and add a line to [CHANGELOG.md](CHANGELOG.md) for user-visible changes.
 
 ## Licence
 
